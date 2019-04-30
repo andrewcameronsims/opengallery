@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'pieces#home', as: 'home'
   get 'workshops/new'
   get 'workshops/show'
   get 'workshops/edit'
@@ -8,5 +9,5 @@ Rails.application.routes.draw do
   get 'pieces/new'
   get 'pieces/edit'
   devise_for :users
-  root 'pieces#home', as: 'home'
+  resources :charges
 end
