@@ -19,6 +19,7 @@ puts 'Seeding buyers.'
   u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
+  u.admin, u.artist = false, false
   u.save
 end
 
@@ -29,6 +30,8 @@ puts 'Seeding artists, workshops, and pieces.'
   u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
+  u.admin = false
+  u.artist = true
   u.save
 
   w = Workshop.new
