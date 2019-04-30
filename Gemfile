@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
@@ -70,4 +72,3 @@ gem "bootstrap", "~> 4.3"
 gem "jquery-rails", "~> 4.3"
 gem "stripe", "~> 4.16"
 gem "aws-sdk-s3", "~> 1.36"
-gem "dotenv", "~> 2.7"
