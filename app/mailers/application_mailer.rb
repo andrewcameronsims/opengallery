@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'admin@opengallery.com'
+  default from: 'testuserapp6@gmail.com'
   layout 'mailer'
 end
