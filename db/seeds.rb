@@ -6,25 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'seeding'
+puts 'Now seeding...'
 
 User.destroy_all
 Workshop.destroy_all
 Piece.destroy_all
 
-puts 'now seeding buyers'
+puts 'Seeding buyers.'
 
 5.times do
   u = User.new
   u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
-  u.save!
+  u.save
 end
 
-puts 'now seeding artists and workshops'
-
-puts 'now seeding pieces'
+puts 'Seeding artists, workshops, and pieces.'
 
 5.times do
   u = User.new
@@ -48,10 +46,10 @@ puts 'now seeding pieces'
     p.materials = Faker::Construction.material + ' and ' + Faker::Construction.material
     p.dimensions = Faker::Measurement.height + ' by ' + Faker::Measurement.height
     p.sold = [true, false].sample # method on arrays which chooses randomly
-    p.user_id = User.ids[0..4].sample # get all user ids and then take first 5 and choose a random one
-		p.workshop_id = w.id
+    p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
+    p.workshop_id = w.id
 		p.save
   end
 end
 
-puts 'Seeding over'
+puts 'Seeding over.'
