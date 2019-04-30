@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bio: MyString
+  bank_account: MyString
+  auto_respond_msg: MyString
+  user: one
+
+two:
+  bio: MyString
+  bank_account: MyString
+  auto_respond_msg: MyString
+  user: two
