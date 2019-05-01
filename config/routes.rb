@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pieces#home', as: 'home'
+  root 'home#home', as: 'home'
   
   devise_for :users
 

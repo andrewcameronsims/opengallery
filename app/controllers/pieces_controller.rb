@@ -1,11 +1,7 @@
 class PiecesController < ApplicationController
-  def home
-    # personalisation code will go here if we have time
-    @pieces = Piece.first(3)
-  end
-
   def index
     @pieces = Piece.all
+    render 'index'
   end
 
   def show
