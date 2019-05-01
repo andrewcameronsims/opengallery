@@ -1,15 +1,15 @@
 <nav class="navbar bg-light">
-  <%= link_to 'Open Gallery Logo', home_path, class: 'navbar-brand' %>
+  <%= link_to 'Open Gallery Logo', home_path, class: 'navbar-brand text-dark' %>
   <div>
     <% if user_signed_in? %>
-      <%= link_to 'Sell your work', new_user_registration_path, class: "p-2" %>
-      <%= link_to 'About Us', new_user_registration_path, class: "p-2" %>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %> 
+      <%= link_to 'Sell your work', new_user_registration_path, class: "p-2 text-dark" %>
+      <%= link_to 'About Us', new_user_registration_path, class: "p-2 text-dark" %>
+      <%= link_to 'Log out', destroy_user_session_path, class: "p-2 text-dark", method: :delete %> 
    <% else %>
-      <%= link_to 'Sell your work', new_user_registration_path, class: "p-2" %>
-      <%= link_to 'About Us', new_user_registration_path, class: "p-2" %>
-      <%= link_to 'Sign Up', new_user_registration_path, class: "p-2" %>
-      <%= link_to 'Login', new_user_session_path, class: "p-2" %>
+      <%= link_to 'Sell your work', new_user_registration_path, class: "p-2 text-dark" %>
+      <%= link_to 'About Us', new_user_registration_path, class: "p-2 text-dark" %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "p-2 text-dark" %>
+      <%= link_to 'Login', new_user_session_path, class: "p-2 text-dark" %>
    <% end %>
  </div>
 </nav>
