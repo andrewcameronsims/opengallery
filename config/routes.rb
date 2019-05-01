@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   get 'pieces/show'
   get 'pieces/new'
   get 'pieces/edit'
-  devise_for :users
-  devise_scope :user do
-    get 'artists/sign_up', to: 'devise/registrations#new_artist', as: 'new_artist_registration'
-  end
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :charges
 end
