@@ -74,3 +74,5 @@ gem 'jquery-rails', '~> 4.3'
 gem 'stripe', '~> 4.16'
 
 gem "pry", "~> 0.12.2"
+
+gem "mini_magick", "~> 4.9"
