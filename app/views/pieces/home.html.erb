@@ -1,2 +1,37 @@
-<h1>Welcome to Open Gallery</h1>
-<p>Coming soon!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="white-on-orange col-4">
+      <h1 class="text-right pt-5 font-weight-bold">Open</h1>
+    </div>
+    <div class="col-8">
+      <h1 class="pt-5 font-weight-bold">Gallery</h1>
+      <h3 class="p-5">An online art gallery and social media platform.</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= image_tag "lakse.jpg", size: 300, class: 'm-5 rounded' %>
+    </div>
+    <div class="col">
+      <%= image_tag "wessels.jpg", size: 300, class: 'm-5 rounded' %>
+    </div>
+    <div class="col">
+      <%= image_tag "babybirthday.jpg", size: 300, class: 'm-5 rounded' %>
+    </div>
+  </div>
+  <div class="row">
+    <%= link_to url: pieces_path, class: "col-2 offset-5" do %>
+      <p class="btn btn-success center">View more pieces</p>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <h2 class="text-right pt-5 font-weight-bold">Reach</h2>
+      <h3 class="text-right pt-5">Bypass traditional gatekeepers and tastemakers.</h3>
+      <p class="p-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere dolorem id natus nemo neque odit ullam laborum porro minus! Repellat, dignissimos maxime, officiis corrupti deleniti commodi eos molestias consequuntur sequi, iure magni sapiente consectetur rem repudiandae blanditiis nesciunt perferendis rerum aliquid. Sequi eaque natus quaerat, doloribus rerum veniam ratione adipisci sapiente impedit nisi minima, deserunt optio, assumenda aperiam asperiores vitae.</p>
+    </div>
+    <div class="col-6 white-on-orange pt-5 font-weight-bold">
+      <h2>your audience.</h2>
+    </div>
+  </div>
+</div>
