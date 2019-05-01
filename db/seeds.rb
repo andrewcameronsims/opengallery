@@ -16,9 +16,15 @@ puts 'Seeding buyers.'
 
 5.times do
   u = User.new
+  u.full_name = Faker::Name.name
   u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
+  u.secret_question = 'What is 1 + 1?'
+  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.address = Faker::Address.full_address
+  u.phone = Faker::PhoneNumber.phone_number
+  u.admin, u.artist = false, false
   u.save
 end
 
@@ -26,9 +32,16 @@ puts 'Seeding artists, workshops, and pieces.'
 
 5.times do
   u = User.new
+  u.full_name = Faker::Name.name
   u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
+  u.secret_question = 'What is 1 + 1?'
+  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.address = Faker::Address.full_address
+  u.phone = Faker::PhoneNumber.phone_number
+  u.admin = false
+  u.artist = true
   u.save
 
   w = Workshop.new

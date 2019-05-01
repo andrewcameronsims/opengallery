@@ -11,3 +11,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :charges
 end
+
+# , controllers: { registrations: 'users/registrations' }

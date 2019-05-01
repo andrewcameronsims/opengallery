@@ -16,4 +16,9 @@
 //= require_tree .
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets 
+//= require bootstrap-sprockets
+
+function showArtistForm() {
+  var artist = document.getElementById("artist-form");
+  artist.classList.toggle("d-none");
+}
