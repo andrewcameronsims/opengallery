@@ -17,12 +17,29 @@ class WorkshopsController < ApplicationController
 
   def create
     @workshop = Workshop.new(workshop_params)
+
+    if @workshop.save
+      redirect_to @workshop
+    else
+      render 'new'
+    end
   end
 
   def update
+    @workshop = Workshop.find(params[:id])
+
+    if @workshop.update(workshop_params)
+      redirect_to @workshop
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @workshop = Workshop.find(params[:id])
+    @workshop.destroy
+
+    redirect_to workshops_path
   end
   
   private
