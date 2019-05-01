@@ -1,7 +1,7 @@
 <div class="container">
-  <h2 class="text-center p-3 shadow col-10 offset-1">To sign you up, we're going to have to know a bit about you.</h2>
+  <h2 class="text-center p-3 shadow col-10 offset-1 bg-light">Sign up</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: {class: "bg-light col-8 offset-2 my-5 p-2 shadow"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: {class: "bg-light my-5 p-2 shadow"}) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field p-2">

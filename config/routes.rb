@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'pieces/show'
   get 'pieces/new'
   get 'pieces/edit'
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users
   resources :charges
 end
+
+# , controllers: { registrations: 'users/registrations' }
