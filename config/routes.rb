@@ -3,13 +3,9 @@ Rails.application.routes.draw do
   get 'workshops/new'
   get 'workshops/show'
   get 'workshops/edit'
-  get 'pieces/home'
-  get 'pieces/index'
-  get 'pieces/show'
-  get 'pieces/new'
-  get 'pieces/edit'
+  
   devise_for :users
-  resources :charges
-end
 
-# , controllers: { registrations: 'users/registrations' }
+  resources :charges
+  resources :pieces
+end
