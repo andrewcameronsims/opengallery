@@ -1,0 +1,23 @@
+
+h1{
+	font-weight: font-weight-bold;
+	font-size: default;
+}
+
+.form{
+	justify-content: center;
+    display: flex;
+    flex-direction: column;
+	width: 50vw;
+	margin-left: 20vw;
+}
+
+.form-input{
+	margin-bottom: 10vh;
+	border: 2px solid rgb(16, 17, 17);
+}
+
+.form-submit-button{
+	width: vw;
+		margin-left: 10vw;
+}
