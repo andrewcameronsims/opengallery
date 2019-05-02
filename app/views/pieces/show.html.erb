@@ -11,4 +11,15 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to 'Back', pieces_path %>
+    </div>
+    <div class="col">
+      <%= link_to 'Edit', edit_piece_path(@piece.id) %>
+    </div>
+    <div class="col">
+      <%= link_to 'Delete', piece_path, method: :delete %>
+    </div>
+  </div>
 </div>
