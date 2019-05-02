@@ -17,6 +17,8 @@ class PiecesController < ApplicationController
 
   def edit
     @piece = Piece.find(params[:id])
+    @user = current_user
+    @workshop = Workshop.find_by(user_id: @user.id)
   end
 
   def create
