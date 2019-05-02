@@ -1,6 +1,6 @@
 class PiecesController < ApplicationController
   def index
-    @pieces = Piece.all
+    @pieces = Piece.all.shuffle
     render 'index'
   end
 

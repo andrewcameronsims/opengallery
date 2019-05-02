@@ -1,12 +1,17 @@
 <div class="container-fluid">
   <div class="d-flex flex-wrap justify-content-around mt-5">
     <% @pieces.each do |piece| %>
-      <div class="card mb-5" style="width: 40%;">
+      <div class="card mb-5 shadow" style="width: 40%;">
         <%= image_tag "lakse.jpg", class: "card-img-top" %>
         <div class="card-body">
-          <h3 class="card-title"><%= piece.name %></h3>
-          <p class="card-text"><%= piece.description %></p>
-          <p class="card-text"><%= piece.materials %></p>
+          <div class="row pb-3">
+            <div class="col">
+              <h3 class="card-title"><%= piece.name %></h3>
+            </div>
+            <div class="col">
+              <p class="text-muted text-right">by <%= piece.workshop.user.full_name %></p>
+            </div>
+          </div>
           <%= link_to 'More Info', piece_path(piece.id), class: 'btn white-on-orange' %>
           <% if piece.sold? %>
             <span class="badge badge-danger">Sold!</span>

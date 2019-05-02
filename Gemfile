@@ -76,3 +76,5 @@ gem 'stripe', '~> 4.16'
 gem "pry", "~> 0.12.2"
 
 gem "mini_magick", "~> 4.9"
+
+gem "http", "~> 4.1"
