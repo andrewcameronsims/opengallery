@@ -11,6 +11,8 @@ class PiecesController < ApplicationController
 
   def new
     @piece = Piece.new
+    @user = current_user
+    @workshop = Workshop.find_by(user_id: @user.id)
   end
 
   def edit
