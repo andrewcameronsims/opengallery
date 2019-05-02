@@ -9,6 +9,13 @@
       <% if @piece.sold? %>
         <p class="text-right">Sold to <%= @piece.user.full_name %></p>
       <% end %>
+      <% if current_user.id == @artist.id %>
+        <p class="text-right"><%= link_to 'Edit', edit_piece_path(@piece.id) %></p>
+        <p class="text-right"><%= link_to 'Delete', piece_path, method: :delete %></p>
+      <% else %>
+        <p class="text-right">Contact the artist</p>
+        <p class="text-right">Buy this piece</p>
+      <% end %>
     </div>
   </div>
 </div>
