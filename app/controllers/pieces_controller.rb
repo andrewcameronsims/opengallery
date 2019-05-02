@@ -2,11 +2,11 @@ class PiecesController < ApplicationController
   def index
     @pieces = Piece.all.shuffle
     @urls = Painting.get_urls
-    render 'index'
   end
 
   def show
     @piece = Piece.find(params[:id])
+    @artist = @piece.workshop.user
   end
 
   def new
