@@ -1,2 +1,14 @@
-<h1>Pieces#show</h1>
-<p>Find me in app/views/pieces/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 white-on-orange"><%= image_tag 'lakse.jpg', class: 'p-5' %></div>
+    <div class="col-9">
+      <h2><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
+      <p class="text-right"><%= @piece.description %></p>
+      <p class="text-right"><%= @piece.materials %></p>
+      <p class="text-right"><%= @piece.dimensions %></p>
+      <% if @piece.sold? %>
+        <p class="text-right">Sold to <%= @piece.user.full_name %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -80,3 +80,5 @@ gem "mini_magick", "~> 4.9"
 gem "http", "~> 4.1"
 
 gem "json", "~> 2.2"
+
+gem "carrierwave", "~> 1.3"
