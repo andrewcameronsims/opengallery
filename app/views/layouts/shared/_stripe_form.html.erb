@@ -1,18 +1,20 @@
 <%= form_tag charges_path do %>
-  <article>
+  <article class="mt-5">
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
     <label class="amount">
-      <span>$<%= @piece.price %></span>
+      <h5>This piece is valued at $<%= @piece.price %></h5>
     </label>
   </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Purchase <%= @piece.name %>" 
-          data-amount=<%= (@piece.price * 100).to_s %> 
-          data-locale="auto"></script>
+  <div class="">
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Purchase <%= @piece.name %>" 
+            data-amount=<%= (@piece.price * 100).to_s %> 
+            data-locale="auto"></script>
+  </div>
 <% end %>
