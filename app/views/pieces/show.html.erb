@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3 white-on-orange"><%= image_tag 'lakse.jpg', class: 'p-5' %></div>
+    <div class="col-3 white-on-orange"><%= image_tag 'lakse.jpg', class: 'm-5' %></div>
     <div class="col-9">
       <h2><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
       <p class="text-right"><%= @piece.description %></p>
@@ -8,13 +8,16 @@
       <p class="text-right"><%= @piece.dimensions %></p>
       <% if @piece.sold? %>
         <p class="text-right">Sold to <%= @piece.user.full_name %></p>
+      <% else %>
+        <p class="text-right">Contact the artist</p>
+        <div class="text-right">
+          <%= render "layouts/shared/stripe_form" %>
+        </div>
       <% end %>
       <% if current_user && current_user.id == @artist.id %>
         <p class="text-right"><%= link_to 'Edit', edit_piece_path(@piece.id) %></p>
         <p class="text-right"><%= link_to 'Delete', piece_path, method: :delete %></p>
       <% else %>
-        <p class="text-right">Contact the artist</p>
-        <p class="text-right">Buy this piece</p>
       <% end %>
     </div>
   </div>
