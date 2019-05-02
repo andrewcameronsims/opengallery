@@ -1,6 +1,7 @@
 class PiecesController < ApplicationController
   def index
     @pieces = Piece.all.shuffle
+    @urls = Painting.get_urls
     render 'index'
   end
 
