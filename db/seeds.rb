@@ -77,4 +77,6 @@ puts 'Seeding artists, workshops, and pieces.'
   end
 end
 
+puts 'Removing downloaded images...'
+`rm ./piece_*.jpg`
 puts 'Seeding over.'
