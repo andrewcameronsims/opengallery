@@ -1,2 +1,43 @@
-<h1>Workshops#new</h1>
-<p>Find me in app/views/workshops/new.html.erb</p>
+<h1>Sell your Work </h1>
+
+<%= form_with scope: :workshop, url: workshops_path, class: 'form', local: true, multipart: true do |form| %>
+
+  <% if @workshop.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@workshop.errors.count, "error") %> prohibited
+        this workshop from being saved:
+      </h2>
+      <ul>
+        <% @workshop.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :user_id, value: @user.id %>
+
+  <p>
+    <%= form.label :bio %><br>
+    <%= form.text_field :bio %>
+  </p>
+ 
+ <p>
+    <%= form.label :bank_account %><br>
+    <%= form.text_field :bank_account %>
+  </p>
+
+ <p>
+    <%= form.label :auto_respond_msg %><br>
+    <%= form.text_area :auto_respond_msg  %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', home_path %>
+
