@@ -8,7 +8,12 @@ class WorkshopsController < ApplicationController
   end
 
   def new
-    @workshop = Workshop.new
+    if current_user.artist?
+      @workshop = Workshop.new
+      @user = current_user
+    else
+      redirect_to home_path
+    end
   end
 
   def edit
