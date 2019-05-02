@@ -1,2 +1,18 @@
-<h1>See all pieces</h1>
-<p>Test</p>
+<div class="container-fluid">
+  <div class="d-flex flex-wrap justify-content-around mt-5">
+    <% @pieces.each do |piece| %>
+      <div class="card mb-5" style="width: 40%;">
+        <%= image_tag "lakse.jpg", class: "card-img-top" %>
+        <div class="card-body">
+          <h3 class="card-title"><%= piece.name %></h3>
+          <p class="card-text"><%= piece.description %></p>
+          <p class="card-text"><%= piece.materials %></p>
+          <%= link_to 'More Info', piece_path(piece.id), class: 'btn white-on-orange' %>
+          <% if piece.sold? %>
+            <span class="badge badge-danger">Sold!</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
