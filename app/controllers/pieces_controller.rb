@@ -10,15 +10,23 @@ class PiecesController < ApplicationController
   end
 
   def new
-    @piece = Piece.new
-    @user = current_user
-    @workshop = Workshop.find_by(user_id: @user.id)
+    if current_user && current_user.artist?
+      @piece = Piece.new
+      @user = current_user
+      @workshop = Workshop.find_by(user_id: @user.id)
+    else
+      redirect_to home_path
+    end
   end
 
   def edit
-    @piece = Piece.find(params[:id])
-    @user = current_user
-    @workshop = Workshop.find_by(user_id: @user.id)
+    if current_user && current_user.artist?
+      @piece = Piece.find(params[:id])
+      @user = current_user
+      @workshop = Workshop.find_by(user_id: @user.id)
+    else
+      redirect_to home_path
+    end
   end
 
   def create
