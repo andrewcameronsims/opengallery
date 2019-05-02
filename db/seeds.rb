@@ -6,6 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+piece_urls = Painting.get_urls
+piece_urls.shuffle!
+piece_filenames = []
+
+puts "Downloading piece images to drive..."
+
+piece_urls[0...10].each_with_index do |url, index|
+  `wget -O piece_#{index}.jpg #{url}`
+  piece_filenames << "piece_#{index}.jpg"
+end
+
 puts 'Now seeding...'
 
 User.destroy_all
@@ -30,7 +41,7 @@ end
 
 puts 'Seeding artists, workshops, and pieces.'
 
-5.times do
+5.times do |artist|
   u = User.new
   u.full_name = Faker::Name.name
   u.email = Faker::Internet.email
@@ -51,7 +62,7 @@ puts 'Seeding artists, workshops, and pieces.'
   w.user_id = u.id # User_id associated with workshop
   w.save
 
-  2.times do
+  2.times do |piece|
     p = Piece.new
     p.name = Faker::Ancient.god + " at the " + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
     p.description = Faker::Lorem.sentence
@@ -61,8 +72,11 @@ puts 'Seeding artists, workshops, and pieces.'
     p.sold = [true, false].sample # method on arrays which chooses randomly
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
+    p.uploaded_image.attach(io: File.open(piece_filenames[artist + piece]), filename: piece_filenames[artist + piece])
 		p.save
   end
 end
 
+puts 'Removing downloaded images...'
+`rm ./piece_*.jpg`
 puts 'Seeding over.'
