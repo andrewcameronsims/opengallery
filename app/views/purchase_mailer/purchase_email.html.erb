@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  
+  <body>
+
+    <h1> Hi <%= @user.name %></h1>
+
+    <p> Thank you for placing your order at <strong> Open Gallery! </strong> </p>
+    
+    <p> Your purchase_invoice is <%= Faker::Invoice.reference %> </p>
+
+    <p> Your piece will reach you shortly. Have a great day!</p>
+  
+  </body>
+
+</html>
