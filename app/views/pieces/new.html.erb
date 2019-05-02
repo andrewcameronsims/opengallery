@@ -15,9 +15,12 @@
         <% end %>
       </ul>
     </div>
-<% end %>
+  <% end %>
 
- <%=hidden_field_tag 'workshop_id', @workshop.id %>
+  <%#= hidden_field_tag :workshop_id, @workshop.id %>
+
+  <%= form.hidden_field :workshop_id, value: @workshop.id %>
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
