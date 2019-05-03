@@ -1,5 +1,4 @@
 <nav class="navbar bg-light">
-  <%# link_to 'Open Gallery Logo', home_path, class: 'navbar-brand text-dark' %>
    <%= image_tag "opengallery-logo", height: 75, class: 'm-1 rounded' %>
   <div>
     <% if user_signed_in? %>
@@ -8,10 +7,10 @@
       <% else %>
         <%= link_to 'Sell your work', new_workshop_path, class: "p-2 text-dark" %>
       <% end %>
-      <a href="#about" class="p-3 text-dark">About Us</a>
+      <%= link_to 'About Us', about_path, class: "p-2 text-dark" %>
       <%= link_to 'Log out', destroy_user_session_path, class: "p-2 text-dark", method: :delete %> 
    <% else %>
-      <a href="#about" class="p-3 text-dark">About Us</a>
+      <%= link_to 'About Us', about_path, class: "p-2 text-dark" %>
       <%= link_to 'Sign Up', new_user_registration_path, class: "p-2 text-dark" %>
       <%= link_to 'Login', new_user_session_path, class: "p-2 text-dark" %>
    <% end %>
