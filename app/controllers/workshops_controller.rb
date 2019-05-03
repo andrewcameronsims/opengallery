@@ -8,7 +8,7 @@ class WorkshopsController < ApplicationController
   end
 
   def new
-    if current_user.artist?
+    if !current_user.artist?
       @workshop = Workshop.new
       @user = current_user
     else
