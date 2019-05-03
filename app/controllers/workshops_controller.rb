@@ -22,9 +22,12 @@ class WorkshopsController < ApplicationController
 
   def create
     @workshop = Workshop.new(workshop_params)
+    @user = current_user
 
     if @workshop.save
-      redirect_to @workshop
+      @user.artist = true
+      @user.save
+      redirect_to new_piece_path
     else
       render 'new'
     end

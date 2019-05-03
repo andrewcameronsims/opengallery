@@ -1,6 +1,6 @@
 <h1>Sell your Work </h1>
 
-<%= form_with scope: :workshop, url: workshops_path, class: 'form', local: true, multipart: true do |form| %>
+<%= form_for :workshop, url: workshops_path, class: 'form', local: true do |form| %>
 
   <% if @workshop.errors.any? %>
     <div id="error_explanation">
