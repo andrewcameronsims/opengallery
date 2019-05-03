@@ -27,3 +27,13 @@ p, a {
 .text-orange {
   color: orange;
 }
+
+.cover {
+  object-fit: cover;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 30vw;
+  object-fit: cover;
+}
