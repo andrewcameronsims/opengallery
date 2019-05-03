@@ -1,0 +1,27 @@
+
+<h1>Send us an email.</h1>
+
+<%= form_tag action: "https://formspree.io/testuserapp6@gmail.com", method: "POST", class: "email-form" do |form| %>
+ 
+ <p> 
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+ </p>
+
+<p> 
+		<%= form.label :email %>
+		<%= form.text_field :email %>
+ </p>
+
+<p> 
+		<%= form.label :message %>
+		<%= form.text_area :message %>
+ </p>
+
+<p>
+    <%= form.submit %>
+</p>
+
+<% end %>
+
+<%= link_to 'Contact Us', home_path %>
