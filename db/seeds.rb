@@ -13,7 +13,7 @@ piece_filenames = []
 puts "Downloading piece images to drive..."
 
 piece_urls[0...10].each_with_index do |url, index|
-  `wget -O piece_#{index}.jpg #{url}`
+  `curl -o piece_#{index}.jpg #{url}`
   piece_filenames << "piece_#{index}.jpg"
 end
 
