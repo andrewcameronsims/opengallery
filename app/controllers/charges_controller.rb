@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
       flash[:error] = e.message
       redirect_to new_charge_path
 
-    Customer was charged. Send an invoice.
+    # Customer was charged. Send an invoice.
     PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
     
   end
