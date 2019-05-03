@@ -2,6 +2,9 @@
    <%= image_tag "opengallery-logo", height: 75, class: 'm-1 rounded' %>
   <div>
     <% if user_signed_in? %>
+      <span class="welcome text-dark">Welcome, </span>
+      <span class="user-name"><%= current_user.full_name.split[0].capitalize %></span>
+      <%= link_to 'Edit your profile', edit_user_registration_path, class: "p-2 text-dark" %>
       <% if current_user.artist? %>
         <%= link_to 'Sell your work', new_piece_path, class: "p-2 text-dark" %>
       <% else %>
