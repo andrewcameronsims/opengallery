@@ -2,7 +2,7 @@
   <div class="d-flex flex-wrap justify-content-around mt-5">
     <% @pieces.each do |piece| %>
       <div class="card mb-5 shadow" style="width: 40%;">
-        <%= image_tag piece.uploaded_image.service_url, class: "card-img-top" %>
+        <%= image_tag piece.uploaded_image.service_url, class: "card-img-top cover" %>
         <div class="card-body">
           <div class="row pb-3">
             <div class="col">
