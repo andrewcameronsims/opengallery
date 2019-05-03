@@ -10,13 +10,13 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= image_tag @promo_pieces[0], size: 300, class: 'm-5 rounded cover' %>
+      <%= image_tag @promo_pieces[0].uploaded_image.service_url, size: 300, class: 'm-5 rounded cover' %>
     </div>
     <div class="col">
-      <%= image_tag @promo_pieces[1], size: 300, class: 'm-5 rounded cover' %>
+      <%= image_tag @promo_pieces[1].uploaded_image.service_url, size: 300, class: 'm-5 rounded cover' %>
     </div>
     <div class="col">
-      <%= image_tag @promo_pieces[2], size: 300, class: 'm-5 rounded cover' %>
+      <%= image_tag @promo_pieces[2].uploaded_image.service_url, size: 300, class: 'm-5 rounded cover' %>
     </div>
   </div>
   <div class="row mb-5">
