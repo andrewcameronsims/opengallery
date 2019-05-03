@@ -1,0 +1,29 @@
+<div class='container d-flex flex-column align-items-center'>
+
+<h1>Send us an email.</h1>
+
+<%= form_tag "https://formspree.io/testuserapp6@gmail.com", method: "POST", class: "email-form" do |form| %>
+ 
+ <p> 
+		<%= label_tag 'name' %>
+		<%= text_field_tag 'name' %>
+ </p>
+
+<p> 
+		<%= label_tag 'email' %>
+		<%= text_field_tag 'email' %>
+ </p>
+
+
+<p> 
+		<%= label_tag 'message' %>
+		<%= text_area_tag 'message' %>
+ </p>
+
+<p>
+    <%= submit_tag 'create' %>
+</p>
+
+<% end %>
+
+</div>
