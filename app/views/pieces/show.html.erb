@@ -9,14 +9,16 @@
       <% if @piece.sold? %>
         <p class="text-right">Sold to <%= @piece.user.full_name %></p>
       <% else %>
-        <div class="text-right">
-          <button type="button" class="btn white-on-orange" data-toggle="modal", data-target="#contact">
-            Contact the artist
-          </button>
-        </div>
-        <div class="text-center">
-          <%= render "layouts/shared/stripe_form" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="text-right">
+            <button type="button" class="btn white-on-orange" data-toggle="modal", data-target="#contact">
+              Contact the artist
+            </button>
+          </div>
+          <div class="text-center">
+            <%= render "layouts/shared/stripe_form" %>
+          </div>
+        <% end %>
       <% end %>
       <% if current_user && current_user.id == @artist.id %>
         <p class="text-right"><%= link_to 'Edit', edit_piece_path(@piece.id) %></p>
