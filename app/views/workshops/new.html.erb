@@ -1,3 +1,6 @@
+
+<div class='container d-flex flex-column align-items-center'>
+
 <h1>Sell your Work </h1>
 
 <%= form_for :workshop, url: workshops_path, class: 'form', local: true do |form| %>
@@ -36,8 +39,10 @@
   <p>
     <%= form.submit %>
   </p>
+
+ <% end %>
  
-<% end %>
- 
+ </div> 
+
 <%= link_to 'Back', home_path %>
 

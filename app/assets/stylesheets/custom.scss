@@ -1,5 +1,13 @@
+* {
+  outline: none;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 95px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,4 +48,20 @@ p, a {
 
 .cover {
   object-fit: cover;
+}
+
+.nav-link:hover {
+  border-bottom: 1px solid orange;
+}
+
+.user-name {
+  font-family: 'Playfair Display', serif;
+  color: orange;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.welcome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
 }

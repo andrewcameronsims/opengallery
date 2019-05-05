@@ -1,19 +1,18 @@
 class ChargesController < ApplicationController
   def new
-    
   end
-  
-  def create
-    
-    # Piece was sold. Change status and link to buyer.
-    @piece = Piece.find(params[:id])
-    @piece.sold = true
-    @piece.user_id = current_user.id
-    @piece.save
 
-    # Define the artist
-    @artist = @piece.workshop.user
-    
+  def create
+
+    # Flag piece as sold and link to buyer.
+    piece = Piece.find(cookies[:piece_id])
+    piece.sold = true
+    piece.user_id = current_user.id
+    piece.save
+
+    # Notify artist of the sale.
+    artist = piece.workshop.user
+
     # Amount in cents
     @amount = 500
     
@@ -38,7 +37,7 @@ class ChargesController < ApplicationController
   PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
   
   # Artist sold a piece. Send a notification.
-  PurchaseMailer.with(user: @artist.full_name).seller_email.deliver_now
+  PurchaseMailer.with(user: artist.full_name).seller_email.deliver_now
   
 end
 end

@@ -81,4 +81,6 @@ gem "http", "~> 4.1"
 
 gem "json", "~> 2.2"
 
-gem "carrierwave", "~> 1.3"
+gem "piet", "~> 0.2.6"
+
+gem "piet-binary", "~> 0.2.0"

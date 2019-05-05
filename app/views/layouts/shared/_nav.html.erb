@@ -1,19 +1,21 @@
-<nav class="navbar bg-light">
-  <%# link_to 'Open Gallery Logo', home_path, class: 'navbar-brand text-dark' %>
-   <%= image_tag "opengallery-logo", height: 75, class: 'm-1 rounded' %>
-  <div>
+<nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light">
+   <%= link_to image_tag("opengallery-logo.png", height: 75, class: 'm-1 rounded'), home_path %>
+  <div class="navbar-nav ml-auto">
     <% if user_signed_in? %>
+      <span class="welcome text-dark">Welcome, </span>
+      <span class="user-name"><%= current_user.full_name.split[0].capitalize %></span>
+      <%= link_to 'Edit your profile', edit_user_registration_path, class: "px-2 nav-link text-dark" %>
       <% if current_user.artist? %>
-        <%= link_to 'Sell your work', new_piece_path, class: "p-2 text-dark" %>
+        <%= link_to 'Sell your work', new_piece_path, class: "px-2 nav-link text-dark" %>
       <% else %>
-        <%= link_to 'Sell your work', new_workshop_path, class: "p-2 text-dark" %>
+        <%= link_to 'Sell your work', new_workshop_path, class: "px-2 nav-link text-dark" %>
       <% end %>
-      <a href="#about" class="p-3 text-dark">About Us</a>
-      <%= link_to 'Log out', destroy_user_session_path, class: "p-2 text-dark", method: :delete %> 
+      <%= link_to 'About Us', about_path, class: "px-2 nav-link text-dark" %>
+      <%= link_to 'Log out', destroy_user_session_path, class: "px-2 nav-link text-dark", method: :delete %> 
    <% else %>
-      <a href="#about" class="p-3 text-dark">About Us</a>
-      <%= link_to 'Sign Up', new_user_registration_path, class: "p-2 text-dark" %>
-      <%= link_to 'Login', new_user_session_path, class: "p-2 text-dark" %>
+      <%= link_to 'About Us', about_path, class: "px-2 nav-link text-dark" %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "px-2 nav-link text-dark" %>
+      <%= link_to 'Login', new_user_session_path, class: "px-2 nav-link text-dark" %>
    <% end %>
  </div>
 </nav>

@@ -17,6 +17,13 @@ piece_urls[0...10].each_with_index do |url, index|
   piece_filenames << "piece_#{index}.jpg"
 end
 
+# The below code is commented out because it was breaking the seed.
+# puts "Optimising images..."
+
+# piece_filenames.each do |file|
+#   Piet.optimize(file)
+# end
+
 puts 'Now seeding...'
 
 User.destroy_all
