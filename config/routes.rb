@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  resources :charges
+  resources :charges, only: [:create]
   resources :pieces
   resources :workshops
 end

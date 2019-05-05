@@ -7,7 +7,7 @@ class PiecesController < ApplicationController
   def show
     @piece = Piece.find(params[:id])
     @artist = @piece.workshop.user
-    cookies[:piece_id] = params[:id]
+    cookies.encrypted[:piece_id] = params[:id]
   end
 
   def new
