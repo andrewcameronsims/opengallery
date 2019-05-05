@@ -82,3 +82,5 @@ gem "http", "~> 4.1"
 gem "json", "~> 2.2"
 
 gem "carrierwave", "~> 1.3"
+
+gem "image_optim", "~> 0.26.3"
