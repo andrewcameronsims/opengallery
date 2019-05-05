@@ -1,7 +1,4 @@
 class ChargesController < ApplicationController
-  def new
-  end
-
   def create
 
     # Flag piece as sold and link to buyer.
