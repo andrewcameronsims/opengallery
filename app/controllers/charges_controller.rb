@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
-  def new; end
+  def new
+  end
 
   def create
       # Amount in cents
@@ -20,6 +21,15 @@ class ChargesController < ApplicationController
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_charge_path
+
+    # Flag piece as sold and link to buyer.
+    piece = Piece.find(cookies[:piece_id])
+    piece.sold = true
+    piece.user_id = current_user.id
+    piece.save
+
+    # Notify artist of the sale.
+    artist = 
 
     # Customer was charged. Send an invoice.
     PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
