@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3 white-on-orange"><%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %></div>
+    <div class="col-3 white-on-orange"><i class="far fa-heart like-button btn btn-light" onclick="favorArtist() "></i><%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %></div>
     <div class="col-7 offset-2">
       <h2 class="m-3 text-center"><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
       <p class="text-right mt-5"><%= @piece.description %></p>
