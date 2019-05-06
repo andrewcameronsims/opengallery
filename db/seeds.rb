@@ -1,10 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+#Defining tags in advance which will get assigned later on (filtering functionality)
+
+tags_array = ['Dutch golden age', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
 piece_urls = Painting.get_urls
 piece_urls.shuffle!
@@ -43,6 +42,7 @@ puts 'Seeding buyers.'
   u.address = Faker::Address.full_address
   u.phone = Faker::PhoneNumber.phone_number
   u.admin, u.artist = false, false
+  u.tags = tags_array.shuffle[0..1]
   u.save
 end
 
@@ -60,6 +60,7 @@ puts 'Seeding artists, workshops, and pieces.'
   u.phone = Faker::PhoneNumber.phone_number
   u.admin = false
   u.artist = true
+  u.tags = tags_array.shuffle[0..1]
   u.save
 
   w = Workshop.new
@@ -80,7 +81,8 @@ puts 'Seeding artists, workshops, and pieces.'
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
     p.uploaded_image.attach(io: File.open(piece_filenames[artist + piece]), filename: piece_filenames[artist + piece])
-		p.save
+    p.tags = tags_array.shuffle[0..1]
+    p.save
   end
 end
 
