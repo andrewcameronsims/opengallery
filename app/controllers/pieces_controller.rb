@@ -1,7 +1,11 @@
 class PiecesController < ApplicationController
   def index
-    @pieces = Piece.all.shuffle
-    @urls = Painting.get_urls
+    if current_user # Sorting only occurs if logged in
+      user_tags = current_user.tags
+      @pieces = Piece.tag_sort(user_tags)
+    else
+      @pieces = Piece.all.shuffle
+    end
   end
 
   def show
