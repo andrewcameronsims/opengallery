@@ -86,6 +86,8 @@ puts 'Seeding artists, workshops, and pieces.'
   end
 end
 
+# Create followers
+
 puts 'Removing downloaded images...'
 `rm ./piece_*.jpg`
 puts 'Seeding over.'

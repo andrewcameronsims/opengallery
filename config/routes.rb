@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :charges, only: [:create]
+  resources :followers, only: [:create]
   resources :pieces
   resources :workshops
 end
