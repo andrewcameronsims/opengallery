@@ -6,6 +6,9 @@
       <p class="text-right"><%= @piece.description %></p>
       <p class="text-right"><%= @piece.materials %></p>
       <p class="text-right"><%= @piece.dimensions %></p>
+      <% @piece.tags.each do |tag| %>
+        <span class="badge badge-light align-right border float-right"><%= tag %></span>
+      <% end %>
       <% if @piece.sold? %>
         <p class="text-right">Sold to <%= @piece.user.full_name %></p>
       <% else %>
