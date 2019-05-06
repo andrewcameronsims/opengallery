@@ -1,3 +1,30 @@
+<script>
+  function favorArtist() {
+    // On/off styles for button
+    let button = document.getElementsByClassName("like-button")[0];
+    button.classList.toggle("fas");
+    button.classList.toggle("far");
+    if (button.style.color === "red") {
+      button.style.color = "black";
+    } else {
+      button.style.color = "red";
+    }
+
+    // Make the post request to produce a follower relationship
+    $.ajax({
+      url: '/followers',
+      data: { 
+        authenticity_token: $('[name="csrf-token"]')[0].content,
+        follower: {
+          user_id: <%= current_user.id %>,
+          workshop_id: <%= @piece.workshop.id %>
+        }
+      },
+      method: 'POST'
+    })
+  }
+</script>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 white-on-orange"><i class="far fa-heart like-button btn btn-light" onclick="favorArtist() "></i><%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %></div>

@@ -17,20 +17,3 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-
-function favorArtist() {
-  // On/off styles for button
-  let button = document.getElementsByClassName("like-button")[0];
-  button.classList.toggle("fas");
-  button.classList.toggle("far");
-  if (button.style.color === "red") {
-    button.style.color = "black"
-  } else {
-    button.style.color = "red"
-  }
-
-  // Make the post request to produce a follower relationship
-}
-
-
-// button.classList.toggle("fas")
