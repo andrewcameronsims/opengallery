@@ -3,14 +3,14 @@
     let button = document.getElementsByClassName("like-button")[0];
     button.classList.toggle("fas");
     button.classList.toggle("far");
-    if (button.style.color === "red") {
+    if (button.classList.contains("far")) {
       // Turn the button black and destroy the Follower record
       button.style.color = "black";
       $.ajax({
-      url: '/followers/<%= @follower.id %>',
+      url: <% if @follower %> '/followers/<%= @follower.id %>' <% else %> 'nil' <% end %>,
       data: { 
         authenticity_token: $('[name="csrf-token"]')[0].content,
-        id: <%= @follower.id %>
+        id: <% if @follower %> <%= @follower.id %> <% else %> 'nil' <% end %>
       },
       method: 'DELETE'
       })
@@ -34,7 +34,10 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3 white-on-orange"><i class="far fa-heart like-button btn btn-light" onclick="favorArtist() "></i><%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %></div>
+    <div class="col-3 white-on-orange">
+      <i class="<% if current_user && @follower.id == current_user.id %>fas <% else %> far <% end %>fa-heart like-button btn btn-light" onclick="favorArtist()"></i>
+      <%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %>
+    </div>
     <div class="col-7 offset-2">
       <h2 class="m-3 text-center"><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
       <p class="text-right mt-5"><%= @piece.description %></p>
