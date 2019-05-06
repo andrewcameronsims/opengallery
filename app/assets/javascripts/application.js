@@ -18,7 +18,16 @@
 //= require popper
 //= require bootstrap-sprockets
 
-function showArtistForm() {
-  var artist = document.getElementById("artist-form");
-  artist.classList.toggle("d-none");
+function favorArtist() {
+  let button = document.getElementsByClassName("like-button")[0];
+  button.classList.toggle("fas");
+  button.classList.toggle("far");
+  if (button.style.color === "red") {
+    button.style.color = "black"
+  } else {
+    button.style.color = "red"
+  }
 }
+
+
+// button.classList.toggle("fas")
