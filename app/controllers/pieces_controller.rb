@@ -11,6 +11,11 @@ class PiecesController < ApplicationController
   def show
     @piece = Piece.find(params[:id])
     @artist = @piece.workshop.user
+    if current_user
+      @follower = Follower.find do |f|
+        f.workshop_id == @piece.workshop.id && f.user_id == current_user.id
+      end
+    end
     cookies.encrypted[:piece_id] = params[:id]
   end
 

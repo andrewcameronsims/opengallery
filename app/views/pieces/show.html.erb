@@ -1,27 +1,34 @@
 <script>
   function favorArtist() {
-    // On/off styles for button
     let button = document.getElementsByClassName("like-button")[0];
     button.classList.toggle("fas");
     button.classList.toggle("far");
     if (button.style.color === "red") {
+      // Turn the button black and destroy the Follower record
       button.style.color = "black";
+      $.ajax({
+      url: '/followers/<%= @follower.id %>',
+      data: { 
+        authenticity_token: $('[name="csrf-token"]')[0].content,
+        id: <%= @follower.id %>
+      },
+      method: 'DELETE'
+      })
     } else {
+      // Turn the button red and create a Follower record
       button.style.color = "red";
-    }
-
-    // Make the post request to produce a follower relationship
-    $.ajax({
+      $.ajax({
       url: '/followers',
       data: { 
         authenticity_token: $('[name="csrf-token"]')[0].content,
         follower: {
           user_id: <%= current_user.id %>,
           workshop_id: <%= @piece.workshop.id %>
-        }
+          }
       },
       method: 'POST'
-    })
+      })
+    }
   }
 </script>
 
