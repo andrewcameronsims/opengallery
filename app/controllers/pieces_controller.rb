@@ -1,7 +1,18 @@
 class PiecesController < ApplicationController
   def index
-    @pieces = Piece.all.shuffle
-    @urls = Painting.get_urls
+    if current_user
+      user_tags = current_user.tags
+      pieces_total_match = Piece.find { |p| p.tags.all? { |tag| user_tags.any? tag } }
+      pieces_partial_match = Piece.find do |p|
+        p.tags.any? { |tag| user_tags.any? tag } && !pieces_total_match.include?(p)
+      end
+      pieces_no_match = Piece.find do |p|
+        !pieces_total_match.include?(p) && !pieces_partial_match.include?(p)
+      end
+      @pieces = pieces_total_match + pieces_partial_match + pieces_no_match
+    else
+      @pieces = Piece.all.shuffle
+    end
   end
 
   def show
