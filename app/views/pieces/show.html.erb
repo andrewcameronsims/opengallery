@@ -1,16 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 white-on-orange"><%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %></div>
-    <div class="col-9">
-      <h2 class="m-3"><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
-      <p class="text-right"><%= @piece.description %></p>
+    <div class="col-7 offset-2">
+      <h2 class="m-3 text-center"><%= @piece.name %> <span class="text-orange">by</span> <%= @artist.full_name %></h2>
+      <p class="text-right mt-5"><%= @piece.description %></p>
       <p class="text-right"><%= @piece.materials %></p>
       <p class="text-right"><%= @piece.dimensions %></p>
       <% @piece.tags.each do |tag| %>
         <span class="badge badge-light align-right border float-right"><%= tag %></span>
       <% end %>
       <% if @piece.sold? %>
-        <p class="text-right">Sold to <%= @piece.user.full_name %></p>
+        <br /><p class="text-right">Sold to <%= @piece.user.full_name %></p>
       <% else %>
         <% if user_signed_in? %>
           <div class="text-right">

@@ -73,7 +73,7 @@ puts 'Seeding artists, workshops, and pieces.'
   2.times do |piece|
     p = Piece.new
     p.name = Faker::Ancient.god + " at the " + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
-    p.description = Faker::Lorem.sentence
+    p.description = Faker::Lorem.paragraph(10)
     p.price = Faker::Commerce.price(range = 50..200.0, as_string = false)
     p.materials = Faker::Construction.material + ' and ' + Faker::Construction.material
     p.dimensions = Faker::Measurement.height + ' by ' + Faker::Measurement.height
