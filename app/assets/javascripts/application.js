@@ -19,6 +19,7 @@
 //= require bootstrap-sprockets
 
 function favorArtist() {
+  // On/off styles for button
   let button = document.getElementsByClassName("like-button")[0];
   button.classList.toggle("fas");
   button.classList.toggle("far");
@@ -27,6 +28,8 @@ function favorArtist() {
   } else {
     button.style.color = "red"
   }
+
+  // Make the post request to produce a follower relationship
 }
 
 
