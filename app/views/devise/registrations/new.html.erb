@@ -7,27 +7,27 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: {class: ""}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :full_name %><br />
         <%= f.text_field :full_name, autofocus: true %><br>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :email %><br />
         <%= f.email_field :email %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :phone %><br />
         <%= f.text_field :phone %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :address %><br />
         <%= f.text_field :address %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -35,30 +35,30 @@
         <%= f.password_field :password %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :secret_question %><br />
         <%= f.text_field :secret_question %><br />
         <small>This is a question that only you know the answer to. We'll use this to reset your password if you lose it.</small>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :encrypted_secret, "Answer to secret question" %><br />
         <%= f.text_field :encrypted_secret %>
       </div>
 
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :tags %><br>
         <%= f.text_field :tags, multiple: true %>
         <%= f.text_field :tags, multiple: true %>
         <%= f.text_field :tags, multiple: true %>
       </div>
     
-      <div class="field">
+      <div class="field my-4">
         <%= f.label :avatar %><br />
         <%= f.file_field :avatar %><br />
         <small>This is an image that will represent you on the site.</small>
