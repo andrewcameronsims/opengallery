@@ -27,4 +27,11 @@ class Piece < ApplicationRecord
     # Concatenate these tiers into the sorted array of pieces
     pieces_total_match + pieces_partial_match + pieces_no_match
   end
+
+  def self.favourite_sort(piece_arr, user_id)
+    # Takes an array of pieces and brings pieces by favourited artists to the top
+    return piece_arr.partition do |p|
+      Follower.find_by(workshop_id: p.workshop.id, user_id: user_id)
+    end.flatten
+  end
 end

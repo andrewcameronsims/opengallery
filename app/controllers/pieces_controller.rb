@@ -2,7 +2,8 @@ class PiecesController < ApplicationController
   def index
     if current_user # Sorting only occurs if logged in
       user_tags = current_user.tags
-      @pieces = Piece.tag_sort(user_tags)
+      pieces = Piece.tag_sort(user_tags)
+      @pieces = Piece.favourite_sort(pieces, current_user.id)
     else
       @pieces = Piece.all.shuffle
     end
