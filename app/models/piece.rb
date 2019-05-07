@@ -30,8 +30,8 @@ class Piece < ApplicationRecord
 
   def self.favourite_sort(piece_arr, user_id)
     # Takes an array of pieces and brings pieces by favourited artists to the top
-    piece_arr.each do |piece|
-      
-    end
+    return piece_arr.partition do |p|
+      Follower.find_by(workshop_id: p.workshop.id, user_id: user_id)
+    end.flatten
   end
 end
