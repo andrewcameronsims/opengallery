@@ -12,14 +12,13 @@
       toggleHeart(button)
       // Destroy the Follower record
       $.ajax({
-      url: '/followers/<%= @follower.id ? @follower.id : 0 %>',
+      url: '/followers/<%= @follower ? @follower.id : 0 %>',
       data: { 
         authenticity_token: $('[name="csrf-token"]')[0].content,
-        id: <%= @follower.id ? @follower.id : 0 %>,  
+        id: <%= (@follower.id ? @follower.id : 0) if @follower %>,  
       },
       method: 'DELETE'
       })
-    alert("You have unfollowed this artist!")
     
     } else {
       toggleHeart(button)
@@ -40,7 +39,7 @@
   }
 </script>
 
-<div id="follower_id" class="d-none"><%= @follower.id %></div>
+<div id="follower_id" class="d-none"><%= @follower.id if @follower %></div>
 
 <div class="container-fluid">
   <div class="row">
