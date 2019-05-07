@@ -22,18 +22,18 @@
       <% end %>
 
       <%= form.hidden_field :user_id, value: @user.id %>
-      <p class="field my-4">
+      <div class="field my-4">
         <%= form.label :bio %><br />
         <%= form.text_area :bio, class: "fill text-area-high" %>
-      </p>
-      <p class="field my-4">
+      </div>
+      <div class="field my-4">
         <%= form.label :bank_account %><br />
         <%= form.text_field :bank_account, class: "fill" %>
-      </p>
-      <p class="field my-4">
+      </div>
+      <div class="field my-4">
         <%= form.label :auto_respond_msg %><br />
         <%= form.text_area :auto_respond_msg, class: "fill text-area-high"  %>
-      </p>
+      </div>
       <p>
         <%= form.submit "Start your workshop", class: "btn white-on-orange" %>
       </p>
