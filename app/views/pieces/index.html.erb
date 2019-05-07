@@ -2,8 +2,8 @@
   <div class="d-flex flex-wrap justify-content-around mt-5">
     <% @pieces.each do |piece| %>
       <div class="card mb-5 shadow" style="width: 40%;">
-       <%if piece.uploaded_image.attached?%>
-        <%= image_tag piece.uploaded_image.service_url, class: "card-img-top cover" %>
+        <% if piece.uploaded_image.attached? %>
+          <%= image_tag piece.uploaded_image.service_url, class: "card-img-top cover" %>
         <% end %> 
         <div class="card-body">
           <div class="row pb-3">
