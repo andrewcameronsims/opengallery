@@ -1,4 +1,11 @@
 class Piece < ApplicationRecord
+  validates :name, presence: true
+  validates :price, presence: true
+  validates :materials, presence: true
+  validates :dimensions, presence: true
+  validates :description, presence: true
+  validates :tags, presence: true
+  validates :uploaded_image, presence: true
 
   belongs_to :user, optional: true
   belongs_to :workshop
