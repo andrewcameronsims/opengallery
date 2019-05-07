@@ -12,9 +12,8 @@ class PiecesController < ApplicationController
     @piece = Piece.find(params[:id])
     @artist = @piece.workshop.user
     if current_user
-      @follower = Follower.find do |f|
-        f.workshop_id == @piece.workshop.id && f.user_id == current_user.id
-      end
+      @follower = Follower.find_by(workshop_id: @piece.workshop.id, user_id: current_user.id)
+      @follower = Follower.new unless @follower
     end
     cookies.encrypted[:piece_id] = params[:id]
   end

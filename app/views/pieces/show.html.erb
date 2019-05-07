@@ -1,33 +1,41 @@
 <script>
-  function favorArtist() {
-    let button = document.getElementsByClassName("like-button")[0];
+  function toggleHeart(button) {
     button.classList.toggle("fas");
     button.classList.toggle("far");
-    if (button.classList.contains("far")) {
-      // Turn the button black and destroy the Follower record
-      button.style.color = "black";
+    button.classList.toggle("text-danger");
+  }
+
+  function favorArtist() {
+    let button = document.getElementsByClassName("like-button")[0];
+    
+    if (button.classList.contains("fas")) {
+      toggleHeart(button)
+      // Destroy the Follower record
       $.ajax({
-      url: <% if @follower %> '/followers/<%= @follower.id %>' <% else %> 'nil' <% end %>,
+      url: '/followers/<%= @follower.id ? @follower.id : 0 %>',
       data: { 
         authenticity_token: $('[name="csrf-token"]')[0].content,
-        id: <% if @follower %> <%= @follower.id %> <% else %> 'nil' <% end %>
+        id: <%= @follower.id ? @follower.id : 0 %>,  
       },
       method: 'DELETE'
       })
+    alert("You have unfollowed this artist!")
+    
     } else {
-      // Turn the button red and create a Follower record
-      button.style.color = "red";
+      toggleHeart(button)
+      // Create a Follower record
       $.ajax({
       url: '/followers',
       data: { 
         authenticity_token: $('[name="csrf-token"]')[0].content,
         follower: {
-          user_id: <%= current_user.id %>,
-          workshop_id: <%= @piece.workshop.id %>
+          user_id: <%= current_user.id if current_user %>,
+          workshop_id: <%= @piece.workshop.id %>,
           }
       },
       method: 'POST'
       })
+      alert("You are now following this artist!")
     }
   }
 </script>
@@ -35,7 +43,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 white-on-orange">
-      <i class="<% if current_user && @follower.id == current_user.id %>fas <% else %> far <% end %>fa-heart like-button btn btn-light" onclick="favorArtist()"></i>
+      <% if current_user %>
+        <i class="<% if @follower.id %>fas text-danger <% else %> far <% end %>fa-heart like-button btn btn-light" onclick="favorArtist()"></i>
+      <% end %>
       <%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %>
     </div>
     <div class="col-7 offset-2">
@@ -51,7 +61,7 @@
       <% else %>
         <% if user_signed_in? %>
           <div class="text-right">
-            <button type="button" class="btn white-on-orange" data-toggle="modal", data-target="#contact">
+            <br /><button type="button" class="btn white-on-orange" data-toggle="modal", data-target="#contact">
               Contact the artist
             </button>
           </div>
@@ -68,6 +78,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
