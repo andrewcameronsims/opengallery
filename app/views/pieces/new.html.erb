@@ -2,7 +2,6 @@
 <h1>Add your Piece</h1>
 
 <%= form_with scope: :piece, url: pieces_path, class: 'form', local: true, multipart: true do |form| %>
-
   <% if @piece.errors.any? %>
     <div id="error_explanation">
       <h2>
