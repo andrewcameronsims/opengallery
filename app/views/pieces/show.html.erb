@@ -40,11 +40,13 @@
   }
 </script>
 
+<div id="follower_id" class="d-none"><%= @follower.id %></div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 white-on-orange">
       <% if current_user %>
-        <i class="<% if @follower.id %>fas text-danger <% else %> far <% end %>fa-heart like-button btn btn-light" onclick="favorArtist()"></i>
+      <i class="<% if @follower.id %>fas text-danger <% else %> far <% end %>fa-heart like-button btn btn-light" onclick="favorArtist()"></i>
       <% end %>
       <%= image_tag @piece.uploaded_image.service_url, width: "500", class: 'm-5 pt-4' %>
     </div>
