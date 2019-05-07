@@ -2,8 +2,10 @@
    <%= link_to image_tag("opengallery-logo.png", height: 75, class: 'm-1 rounded'), home_path %>
   <div class="navbar-nav ml-auto">
     <% if user_signed_in? %>
-      <span class="welcome text-dark">Welcome, </span>
+    <div class="mt-1 mr-5">
+      <span class="welcome text-dark mr-1">Welcome,</span>
       <span class="user-name"><%= current_user.full_name.split[0].capitalize %></span>
+    </div>
       <%= link_to 'Edit your profile', edit_user_registration_path, class: "px-2 nav-link text-dark" %>
       <% if current_user.artist? %>
         <%= link_to 'Sell your work', new_piece_path, class: "px-2 nav-link text-dark" %>
