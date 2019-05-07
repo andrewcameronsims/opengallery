@@ -7,6 +7,12 @@ class FollowersController < ApplicationController
     else
       puts "failure"
     end
+    # return format.json {render json: @follower_id}
+  end
+
+  def destroy
+    @follower = Follower.find(params[:id])
+    @follower.destroy
   end
 
   private
