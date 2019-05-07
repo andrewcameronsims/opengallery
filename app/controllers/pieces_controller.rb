@@ -55,8 +55,9 @@ class PiecesController < ApplicationController
   end
 
   def destroy
-    @piece = Piece.find(params[:id]).uploaded_image.purge
-
+    @piece = Piece.find(params[:id])
+    @piece.uploaded_image.purge
+    @piece.destroy
 
     redirect_to pieces_path
   end

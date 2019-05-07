@@ -1,6 +1,4 @@
 class Painting
-  belongs_to :user
-  # belongs_to :workshop
   
   def self.get_urls(urls = 100)
     img_urls = []
