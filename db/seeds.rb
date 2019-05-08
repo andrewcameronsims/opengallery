@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-#Defining tags in advance which will get assigned later on (filtering functionality)
+# Defining tags in advance which will get assigned later on (filtering functionality)
 
 tags_array = ['Dutch golden age', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
@@ -9,7 +11,7 @@ piece_urls = Painting.get_urls
 piece_urls.shuffle!
 piece_filenames = []
 
-puts "Downloading piece images to drive..."
+puts 'Downloading piece images to drive...'
 
 piece_urls[0...10].each_with_index do |url, index|
   `curl -o piece_#{index}.jpg #{url}`
@@ -38,11 +40,12 @@ puts 'Seeding buyers.'
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
   u.secret_question = 'What is 1 + 1?'
-  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.encrypted_secret = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
   u.address = Faker::Address.full_address
   u.phone = Faker::PhoneNumber.phone_number
-  u.admin, u.artist = false, false
-  u.tags = tags_array.shuffle[0..1]
+  u.admin = false
+  u.artist = false
+  u.tags = tags_array.sample(2)
   u.save
 end
 
@@ -55,12 +58,12 @@ puts 'Seeding artists, workshops, and pieces.'
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
   u.secret_question = 'What is 1 + 1?'
-  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.encrypted_secret = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
   u.address = Faker::Address.full_address
   u.phone = Faker::PhoneNumber.phone_number
   u.admin = false
   u.artist = true
-  u.tags = tags_array.shuffle[0..1]
+  u.tags = tags_array.sample(2)
   u.save
 
   w = Workshop.new
@@ -72,7 +75,7 @@ puts 'Seeding artists, workshops, and pieces.'
 
   2.times do |piece|
     p = Piece.new
-    p.name = Faker::Ancient.god + " at the " + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
+    p.name = Faker::Ancient.god + ' at the ' + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
     p.description = Faker::Lorem.paragraph(10)
     p.price = Faker::Commerce.price(range = 50..200.0, as_string = false)
     p.materials = Faker::Construction.material + ' and ' + Faker::Construction.material
@@ -81,7 +84,7 @@ puts 'Seeding artists, workshops, and pieces.'
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
     p.uploaded_image.attach(io: File.open(piece_filenames[artist + piece]), filename: piece_filenames[artist + piece])
-    p.tags = tags_array.shuffle[0..1]
+    p.tags = tags_array.sample(2)
     p.save
   end
 end
