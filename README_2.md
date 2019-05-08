@@ -1,16 +1,19 @@
-# Open Gallery
-## The Online Art Gallery
+
 Andrew Sims and Seep Gulati
 
 [Published Application](http://open-gallery.herokuapp.com)
+
 [Github Repository](https://github.com/andrewcameronsims/opengallery)
 
 Description of your project, including,
 
 Problem definition / purpose
+An online marketplace to connect visual artists and art-lovers. Our platform gives visual artists the opportunity not only to sell their works but also to set-up patronage relationships with art-lovers who can choose to “follow” them and be the first to see new works as they go up for sale. The products are original visual “pieces”(either painting, drawings, or sculpture) -- basically things that you would find in a gallery which has pieces for sale.
 
 
 Functionality / features
+
+Browse products
 
 
 Screenshots
@@ -84,6 +87,8 @@ Apart from the Ruby Gem depencies mentioned in question 5, our application
 * Mailgun - Provides the application with mailer functionlity. Buyers and Sellers recieve purchase invoices through emails.
 * Stripe - Implements a payment system for our application by charging appropriate amount through credit card.
 * Amazon web services - Provides on-demand cloud image storage services.
+* Fontawesome - Provides icons for follower action.
+* Bootstrap - Provides CSS support for styling.
 
 ### 14. Provide your database schema design.
 
@@ -91,7 +96,38 @@ Apart from the Ruby Gem depencies mentioned in question 5, our application
 
 ### 15. Provide User stories for your App.
 
-* Copy paste and proofread stories
+User story 1:
+As a User (role), 
+I want to browse all the products.(action)
+So that I can select and buy the piece I like. (business-goal/reasoning)
+
+
+
+As a Artist (role)
+I can add my piece.(action)
+So that Users can buy it from the 
+
+
+
+
+
+Artist can:
+Add new pieces with fixed pricing
+View entire pieces listing
+Manage inventory and delivery
+Update pieces
+Delete pieces
+
+Admin can:
+Add artists
+Block/unblock artists
+Flag/unflag buyers
+All functions
+
+
+
+
+
 
 ### 16. Provide Wireframes for your App.
 
