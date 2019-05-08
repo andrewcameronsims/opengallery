@@ -5,31 +5,24 @@
 
 # Defining tags in advance which will get assigned later on (filtering functionality)
 
-tags_array = ['Dutch golden age', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
+tags_array = ['Dutch', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
 piece_urls = Painting.get_urls
-piece_urls.shuffle!
+# piece_urls.shuffle!
 piece_filenames = []
 
-puts 'Downloading piece images to drive...'
+# puts "Downloading piece images to drive..."
 
 piece_urls[0...10].each_with_index do |url, index|
-  `curl -o piece_#{index}.jpg #{url}`
+#   `curl -o piece_#{index}.jpg #{url}`
   piece_filenames << "piece_#{index}.jpg"
 end
 
-# The below code is commented out because it was breaking the seed.
-# puts "Optimising images..."
-
-# piece_filenames.each do |file|
-#   Piet.optimize(file)
-# end
-
 puts 'Now seeding...'
 
-User.destroy_all
-Workshop.destroy_all
 Piece.destroy_all
+Workshop.destroy_all
+User.destroy_all
 
 puts 'Seeding buyers.'
 
@@ -51,7 +44,9 @@ end
 
 puts 'Seeding artists, workshops, and pieces.'
 
-5.times do |artist|
+counter = 0
+
+5.times do
   u = User.new
   u.full_name = Faker::Name.name
   u.email = Faker::Internet.email
@@ -73,7 +68,7 @@ puts 'Seeding artists, workshops, and pieces.'
   w.user_id = u.id # User_id associated with workshop
   w.save
 
-  2.times do |piece|
+  2.times do
     p = Piece.new
     p.name = Faker::Ancient.god + ' at the ' + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
     p.description = Faker::Lorem.paragraph(10)
@@ -83,14 +78,16 @@ puts 'Seeding artists, workshops, and pieces.'
     p.sold = [true, false].sample # method on arrays which chooses randomly
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
-    p.uploaded_image.attach(io: File.open(piece_filenames[artist + piece]), filename: piece_filenames[artist + piece])
-    p.tags = tags_array.sample(2)
+    p.uploaded_image.attach(io: File.open('./app/assets/images/' + piece_filenames[counter]), filename: piece_filenames[counter])
+    p.tags = tags_array.shuffle[0..1]
     p.save
+
+    counter += 1
   end
 end
 
 # Create followers
 
-puts 'Removing downloaded images...'
-`rm ./piece_*.jpg`
+# puts 'Removing downloaded images...'
+# `rm ./piece_*.jpg`
 puts 'Seeding over.'
