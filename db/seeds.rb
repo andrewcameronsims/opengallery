@@ -18,9 +18,9 @@ end
 
 puts 'Now seeding...'
 
-User.destroy_all
-Workshop.destroy_all
 Piece.destroy_all
+Workshop.destroy_all
+User.destroy_all
 
 puts 'Seeding buyers.'
 
@@ -65,8 +65,6 @@ counter = 0
   w.user_id = u.id # User_id associated with workshop
   w.save
 
-  counter += 1
-
   2.times do
     p = Piece.new
     p.name = Faker::Ancient.god + " at the " + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
@@ -77,7 +75,7 @@ counter = 0
     p.sold = [true, false].sample # method on arrays which chooses randomly
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
-    p.uploaded_image.attach(io: File.open(piece_filenames[counter - 1]), filename: piece_filenames[counter - 1])
+    p.uploaded_image.attach(io: File.open(piece_filenames[counter]), filename: piece_filenames[counter])
     p.tags = tags_array.shuffle[0..1]
     p.save
 
