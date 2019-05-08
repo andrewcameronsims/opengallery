@@ -37,7 +37,11 @@ We want there to be something for everyone.
 
 ### 4. Describe the network infrastructure the App may be based on.
 
-
+We have deployed our app using the Heroku cloud service, which is a containerization
+ecosystem. Heroku runs containers called *dynos* which package together an application
+and all its dependencies. Dyno's don't themselves have a permanent filesystem for
+storage and rely on a database for persisting data. The end user is able to use our
+app through HTTP request-and-response cycles between the browser and the Heroku dynos.
 
 ### 5. Identify and describe the software to be used in your App.
 
@@ -45,7 +49,7 @@ We want there to be something for everyone.
 
 ### 6. Identify the database to be used in your App and provide a justification for your choice.
 
-* Postgresql
+We are using a Postgresql relational database.
 
 ### 7. Identify and describe the production database setup (i.e. postgres instance).
 ### 8. Describe the architecture of your App.
@@ -62,7 +66,7 @@ We want there to be something for everyone.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-* Etsy datastructure?
+* Etsy database?
 
 ### 12. Discuss the database relations to be implemented.
 
