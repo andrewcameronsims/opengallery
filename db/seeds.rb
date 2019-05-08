@@ -7,7 +7,7 @@
 
 tags_array = ['Dutch', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
-piece_urls = Painting.get_urls
+piece_urls = [[0] * 10]
 # piece_urls.shuffle!
 piece_filenames = []
 
