@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -73,14 +75,14 @@ gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails', '~> 4.3'
 gem 'stripe', '~> 4.16'
 
-gem "pry", "~> 0.12.2"
+gem 'pry', '~> 0.12.2'
 
-gem "mini_magick", "~> 4.9"
+gem 'mini_magick', '~> 4.9'
 
-gem "http", "~> 4.1"
+gem 'http', '~> 4.1'
 
-gem "json", "~> 2.2"
+gem 'json', '~> 2.2'
 
-gem "piet", "~> 0.2.6"
+gem 'piet', '~> 0.2.6'
 
-gem "piet-binary", "~> 0.2.0"
+gem 'piet-binary', '~> 0.2.0'

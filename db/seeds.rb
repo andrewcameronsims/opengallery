@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
@@ -31,11 +33,12 @@ puts 'Seeding buyers.'
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
   u.secret_question = 'What is 1 + 1?'
-  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.encrypted_secret = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
   u.address = Faker::Address.full_address
   u.phone = Faker::PhoneNumber.phone_number
-  u.admin, u.artist = false, false
-  u.tags = tags_array.shuffle[0..1]
+  u.admin = false
+  u.artist = false
+  u.tags = tags_array.sample(2)
   u.save
 end
 
@@ -50,12 +53,12 @@ counter = 0
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
   u.secret_question = 'What is 1 + 1?'
-  u.encrypted_secret = "da4b9237bacccdf19c0760cab7aec4a8359010b0"
+  u.encrypted_secret = 'da4b9237bacccdf19c0760cab7aec4a8359010b0'
   u.address = Faker::Address.full_address
   u.phone = Faker::PhoneNumber.phone_number
   u.admin = false
   u.artist = true
-  u.tags = tags_array.shuffle[0..1]
+  u.tags = tags_array.sample(2)
   u.save
 
   w = Workshop.new
@@ -67,7 +70,7 @@ counter = 0
 
   2.times do
     p = Piece.new
-    p.name = Faker::Ancient.god + " at the " + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
+    p.name = Faker::Ancient.god + ' at the ' + [Faker::TvShows::TwinPeaks.location, Faker::Games::Myst.age][rand(0..1)]
     p.description = Faker::Lorem.paragraph(10)
     p.price = Faker::Commerce.price(range = 50..200.0, as_string = false)
     p.materials = Faker::Construction.material + ' and ' + Faker::Construction.material

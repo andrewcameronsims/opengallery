@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class WorkshopsController < ApplicationController
   def index
     @workshops = Workshop.all
@@ -49,9 +51,10 @@ class WorkshopsController < ApplicationController
 
     redirect_to workshops_path
   end
-  
+
   private
-    def workshop_params
-      params.require(:workshop).permit(:bio, :bank_account, :auto_respond_msg, :user_id)
-    end
+
+  def workshop_params
+    params.require(:workshop).permit(:bio, :bank_account, :auto_respond_msg, :user_id)
+  end
 end

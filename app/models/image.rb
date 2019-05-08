@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Image
   def resize_to(file, dimensions)
     image = MiniMagick::Image.read(file)

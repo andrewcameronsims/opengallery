@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PurchaseMailer < ApplicationMailer
   def purchase_email
     @user_name = params[:user]
@@ -9,4 +11,3 @@ class PurchaseMailer < ApplicationMailer
     mail(to: 'testuserapp6@gmail.com', subject: "You've sold an artwork!")
   end
 end
-
