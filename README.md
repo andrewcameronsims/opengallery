@@ -49,12 +49,24 @@ app through HTTP request-and-response cycles between the browser and the Heroku 
 
 ### 6. Identify the database to be used in your App and provide a justification for your choice.
 
-We are using a Postgresql relational database.
+We are using a Postgresql relational database. The advantages of relational databases
+are their reliabity, simplicity, and efficiency in processing queries. Furthermore,
+relational databases are compatible with a wide range of different softwares for the
+other abstraction layers (in this case, Rails).
 
 ### 7. Identify and describe the production database setup (i.e. postgres instance).
+
+Postgresql is an open source implementation of the relational database architecture.
+This is the database setup that we have been using in our production as well as our
+development environments. This ensures consistency across those contexts. The Ruby gem
+that is required to use this system is installed as a dependency in our Bundle file and
+Heroku takes care of most of the details during deployment. Most of our interaction with the database is done through ActiveRecord.  We have occasionally needed
+to reset and reseed the database remotely and this can be done by running
+`heroku pg:reset DATABASE` and `heroku run rails db:seed` at the terminal.
+
 ### 8. Describe the architecture of your App.
 
-* MVC
+Our application follows the standard Model-View-Controller (MVC) architecture.
 
 ### 9. Explain the different high-level components (abstractions) in your App.
 ### 10. Detail any third party services that your App will use.
