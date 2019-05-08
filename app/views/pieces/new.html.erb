@@ -1,64 +1,72 @@
+<div class="row">
+  <div class="col-3 white-on-orange">
+  </div>
+  <div class="col p-5">
+    <h2 class="pb-3 mb-3 border-bottom">Add your piece</h2>
 
-<h1>Add your Piece</h1>
+    <%= form_with scope: :piece, url: pieces_path, local: true, multipart: true do |form| %>
+      
+      <% if @piece.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@piece.errors.count, "error") %> prohibited
+            this piece from being saved:
+          </h2>
+          <ul>
+            <% @piece.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<%= form_with scope: :piece, url: pieces_path, class: 'form', local: true, multipart: true do |form| %>
-  <% if @piece.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@piece.errors.count, "error") %> prohibited
-        this piece from being saved:
-      </h2>
-      <ul>
-        <% @piece.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <%= form.hidden_field :workshop_id, value: @workshop.id %>
 
-  <%= form.hidden_field :workshop_id, value: @workshop.id %>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+      </div>
+    
+      <div>
+        <%= form.label :price %><br>
+        <%= form.text_field :price %>
+      </div>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
- 
- <p>
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
-  </p>
+      <div>
+        <%= form.label :materials %><br>
+        <%= form.text_field :materials %>
+      </div>
 
- <p>
-    <%= form.label :materials %><br>
-    <%= form.text_field :materials %>
-  </p>
+      <div>
+        <%= form.label :dimensions %><br>
+        <%= form.text_field :dimensions %>
+      </div>
 
+      <div>
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+      </div>
+
+      <div>
+        <%= form.label :tags %><br>
+        <%= form.text_field :tags, multiple: true %>
+        <%= form.text_field :tags, multiple: true %>
+        <%= form.text_field :tags, multiple: true %>
+      </div>
+      
+      <div>
+        <%= form.label :uploaded_image %><br>
+        <%= form.file_field :uploaded_image %>
+      </div>
+
+      <div>
+        <%= form.submit "Save Piece", class: "btn white-on-orange" %>
+      </div>
+    <% end %> 
+
+    <%= link_to 'Back', home_path %>
+  </div>
 </div>
- <p>
-    <%= form.label :dimensions %><br>
-    <%= form.text_field :dimensions %>
-  </p>
 
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
 
-  <p>
-    <%= form.label :tags %><br>
-    <%= form.text_field :tags, multiple: true %>
-    <%= form.text_field :tags, multiple: true %>
-    <%= form.text_field :tags, multiple: true %>
-  </p>
-  
-  <p>
-    <%= form.label :uploaded_image %><br>
-    <%= form.file_field :uploaded_image %>
-  <p>
-    <%= form.submit %>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Back', home_path %>

@@ -1,13 +1,7 @@
 class FollowersController < ApplicationController
   def create
     @follower = Follower.new(follower_params)
-
-    if @follower.save
-      puts "success"
-    else
-      puts "failure"
-    end
-    # return format.json {render json: @follower_id}
+    @follower.save
   end
 
   def destroy
