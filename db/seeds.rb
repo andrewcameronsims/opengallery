@@ -1,27 +1,20 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-#Defining tags in advance which will get assigned later on (filtering functionality)
+# Defining tags in advance which will get assigned later on (filtering functionality)
 
-tags_array = ['Dutch golden age', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
+tags_array = ['Dutch', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
 piece_urls = Painting.get_urls
-piece_urls.shuffle!
+# piece_urls.shuffle!
 piece_filenames = []
 
-puts "Downloading piece images to drive..."
+# puts "Downloading piece images to drive..."
 
 piece_urls[0...10].each_with_index do |url, index|
-  `curl -o piece_#{index}.jpg #{url}`
+#   `curl -o piece_#{index}.jpg #{url}`
   piece_filenames << "piece_#{index}.jpg"
 end
-
-# The below code is commented out because it was breaking the seed.
-# puts "Optimising images..."
-
-# piece_filenames.each do |file|
-#   Piet.optimize(file)
-# end
 
 puts 'Now seeding...'
 
@@ -88,6 +81,6 @@ end
 
 # Create followers
 
-puts 'Removing downloaded images...'
-`rm ./piece_*.jpg`
+# puts 'Removing downloaded images...'
+# `rm ./piece_*.jpg`
 puts 'Seeding over.'
