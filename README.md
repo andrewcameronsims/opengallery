@@ -1,6 +1,9 @@
 # Short Answer Questions
 
 1. What is the need (i.e., challenge) that you will be addressing in your project?
+
+
+
 2. Identify the problem you’re trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 3. Describe the project will you be conducting and how. your App will address the needs.
 4. Describe the network infrastructure the App may be based on.
@@ -21,5 +24,9 @@
 19. Provide an overview and description of your Source control process.
 20. Provide an overview and description of your Testing process.
 21. Discuss and analyse requirements related to information system security.
+
+* Authenticity tokens to prevent CSRF
+* Authorisation of user requests
+
 22. Discuss methods you will use to protect information and data.
 23. Research what your legal obligations are in relation to handling user data.
