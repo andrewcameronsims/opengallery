@@ -134,6 +134,9 @@ following who.
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
+Given the slim database the relations between our tables became important for playing
+the role that these missing tables would otherwise play.
+
 * all workshops belong to a user
 * all pieces belong to a workshop
 * some pieces belong to a user
