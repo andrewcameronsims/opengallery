@@ -1,5 +1,10 @@
 # Open Gallery
 ## The Online Art Gallery
+Andrew Sims and Seep Gulati
+
+[Github Repository](https://github.com/andrewcameronsims/opengallery)
+
+## 
 
 ## Short Answer Questions
 
@@ -15,7 +20,9 @@ Even if the desire to purchase original artworks is widespread, there are artifi
 barriers in place which prevent this. These barriers exist both on the side of purchase
 and the side of sale. These partly have to do with the complex institutions which
 surround this market, and partly to do with geographical limitations. For example,
-
+the modish nature of gallerists and other players may exclude outsiders who have a
+legitimate niche in the market. Likewise, the geographical limitations of brick-and-mortar
+galleries may limit buyers to those who can visit those locations.
 
 ### 3. Describe the project will you be conducting and how. your App will address the needs.
 
@@ -111,4 +118,4 @@ We want there to be something for everyone.
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
-* GDPR compliance
+In order to maximise the reach of our app, we have decided to make it GDPR compliant.
