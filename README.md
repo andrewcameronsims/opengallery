@@ -4,8 +4,6 @@ Andrew Sims and Seep Gulati
 
 [Github Repository](https://github.com/andrewcameronsims/opengallery)
 
-## 
-
 ## Short Answer Questions
 
 ### 1. What is the need (i.e., challenge) that you will be addressing in your project?
@@ -18,13 +16,13 @@ pieces of art.
 
 Even if the desire to purchase original artworks is widespread, there are artificial
 barriers in place which prevent this. These barriers exist both on the side of purchase
-and the side of sale. These partly have to do with the complex institutions which
+and the side of sale. These partly have to do with the inefficient social institutions which
 surround this market, and partly to do with geographical limitations. For example,
 the modish nature of gallerists and other players may exclude outsiders who have a
 legitimate niche in the market. Likewise, the geographical limitations of brick-and-mortar
 galleries may limit buyers to those who can visit those locations.
 
-### 3. Describe the project will you be conducting and how. your App will address the needs.
+### 3. Describe the project will you be conducting and how your App will address the needs.
 
 Our application will lower traditional barriers to the purchase and sale of original
 art, bypassing traditional gatekeepers and tastemakers such as gallerists, critics,
@@ -39,7 +37,7 @@ We want there to be something for everyone.
 
 We have deployed our app using the Heroku cloud service, which is a containerization
 ecosystem. Heroku runs containers called *dynos* which package together an application
-and all its dependencies. Dyno's don't themselves have a permanent filesystem for
+and all its dependencies. Dynos don't themselves have a permanent filesystem for
 storage and rely on a database for persisting data. The end user is able to use our
 app through HTTP request-and-response cycles between the browser and the Heroku dynos.
 
@@ -60,15 +58,38 @@ Postgresql is an open source implementation of the relational database architect
 This is the database setup that we have been using in our production as well as our
 development environments. This ensures consistency across those contexts. The Ruby gem
 that is required to use this system is installed as a dependency in our Bundle file and
-Heroku takes care of most of the details during deployment. Most of our interaction with the database is done through ActiveRecord.  We have occasionally needed
+Heroku takes care of most of the details during deployment. Most of our interaction 
+with the database is done through ActiveRecord.  We have occasionally needed
 to reset and reseed the database remotely and this can be done by running
 `heroku pg:reset DATABASE` and `heroku run rails db:seed` at the terminal.
+We chose to keep our database slim. We anticipated that a gratuitously complex database
+schema would result in problems during development and instead
+implemented our functionality through table relationships and client-side
+technologies (i.e. cookies).
 
 ### 8. Describe the architecture of your App.
 
-Our application follows the standard Model-View-Controller (MVC) architecture.
+Our application follows the standard Model-View-Controller (MVC) architecture. This
+conceptualises a piece of software in terms of three functional modules:
+
+* The model contains the information and logic that is required to perform the
+functions of the app. 
+* The view determines the information that will be presented to the user, and the
+manner in which this information will be presented.
+* The controller mediates user requests for information to the model and then determines
+how the view will be used in order to filter that information to the user. 
+(E.g., by triggering one rather than another view)
+
+In Rails, this architecture is implemented by the ActiveRecord (model), 
+ActionController (controller), and .erb templates (view).
 
 ### 9. Explain the different high-level components (abstractions) in your App.
+
+Our application implements the high-level abstractions of MVC in terms of the
+pre-existing Rails conventions. There are additional details on this level which can
+be described. For example, we have included additional methods within our model which
+allow it to be sorted according to user preferences before being passed to the view.
+
 ### 10. Detail any third party services that your App will use.
 
 * Mailgun
@@ -78,14 +99,21 @@ Our application follows the standard Model-View-Controller (MVC) architecture.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-* Etsy database?
+Our application is a type of application called a *two-sided marketplace*.
+The role of a two-sided marketplace is to provide an online venue in which transactions
+can take place between two kinds of users. In the case of Uber, for example, these
+transactions take place between drivers and passengers. There are certain details about
+the database requirements of these applications that can be generally stated. First,
+they need to take into account 
 
 ### 12. Discuss the database relations to be implemented.
 
-* users
-* workshops
-* pieces
-* followers
+We have four tables in our database.
+
+* users: 
+* workshops:
+* pieces:
+* followers:
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
