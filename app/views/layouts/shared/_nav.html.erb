@@ -4,7 +4,13 @@
     <% if user_signed_in? %>
     <div class="mt-1 mr-5">
       <span class="welcome text-dark mr-1">Welcome,</span>
-      <span class="user-name"><%= current_user.full_name.split[0].capitalize %></span>
+      <span class="user-name">
+        <% if current_user.full_name.split[0].include?(".") %>
+          <%= current_user.full_name.split[1].capitalize %>
+        <% else %>
+          <%= current_user.full_name.split[0].capitalize %>
+        <% end %>
+      </span>
     </div>
       <%= link_to 'Edit your profile', edit_user_registration_path, class: "px-2 nav-link text-dark" %>
       <% if current_user.artist? %>
