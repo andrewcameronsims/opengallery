@@ -80,15 +80,14 @@ manner in which this information will be presented.
 how the view will be used in order to filter that information to the user. 
 (E.g., by triggering one rather than another view)
 
-In Rails, this architecture is implemented by the ActiveRecord (model), 
-ActionController (controller), and .erb templates (view).
-
 ### 9. Explain the different high-level components (abstractions) in your App.
 
 Our application implements the high-level abstractions of MVC in terms of the
-pre-existing Rails conventions. There are additional details on this level which can
-be described. For example, we have included additional methods within our model which
-allow it to be sorted according to user preferences before being passed to the view.
+pre-existing Rails conventions. In Rails, this architecture is implemented by 
+the ActiveRecord (model), ActionController (controller), and .erb templates (view).
+For example, we have included additional methods within our model which allow it 
+to be sorted according to user preferences before being 
+passed to the view. 
 
 ### 10. Detail any third party services that your App will use.
 
@@ -137,10 +136,10 @@ following who.
 Given the slim database the relations between our tables became important for playing
 the role that these missing tables would otherwise play.
 
-* all workshops belong to a user
-* all pieces belong to a workshop
-* some pieces belong to a user
-* all followers belong to a user and a workshop
+* **a one-to-one relationship between workshops and users**: 
+* **a many-to-one relationship between pieces and workshops**: 
+* **a many-to-one relationship between users and pieces**: 
+* **a many-to-many relationship between users and workshops**: 
 
 ### 14. Provide your database schema design.
 
