@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Painting
   def self.get_urls(urls = 100)
     img_urls = []

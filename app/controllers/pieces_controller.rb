@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PiecesController < ApplicationController
   def index
     if current_user # Sorting only occurs if logged in
@@ -14,13 +16,13 @@ class PiecesController < ApplicationController
     @artist = @piece.workshop.user
     if current_user
       @follower = Follower.find_by(workshop_id: @piece.workshop.id, user_id: current_user.id)
-      @follower = Follower.new unless @follower
+      @follower ||= Follower.new
     end
     cookies.encrypted[:piece_id] = params[:id]
   end
 
   def new
-    if current_user && current_user.artist?
+    if current_user&.artist?
       @piece = Piece.new
       @user = current_user
       @workshop = Workshop.find_by(user_id: @user.id)
@@ -30,7 +32,7 @@ class PiecesController < ApplicationController
   end
 
   def edit
-    if current_user && current_user.artist?
+    if current_user&.artist?
       @piece = Piece.find(params[:id])
       @user = current_user
       @workshop = Workshop.find_by(user_id: @user.id)
@@ -68,7 +70,8 @@ class PiecesController < ApplicationController
   end
 
   private
-    def piece_params
-      params.require(:piece).permit(:name, :description, :price, :materials, :dimensions, :workshop_id, :uploaded_image, :tags => [])
-    end
+
+  def piece_params
+    params.require(:piece).permit(:name, :description, :price, :materials, :dimensions, :workshop_id, :uploaded_image, tags: [])
+  end
 end
