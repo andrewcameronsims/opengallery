@@ -103,14 +103,18 @@ Our application is a type of application called a *two-sided marketplace*.
 The role of a two-sided marketplace is to provide an online venue in which transactions
 can take place between two kinds of users. In the case of Uber, for example, these
 transactions take place between drivers and passengers. There are certain details about
-the database requirements of these applications that can be generally stated. First,
-they need to take into account 
+the requirements of these applications that can be generally stated. First,
+they need to take into account that there are two kinds of users on the application either
+through two database tables or some other means. Secondly, they need to keep track of
+purchases either themselves or by outsourcing this task to a third party like Stripe.
+Finally, the items that are themselves transacted (e.g., rides, or art pieces, or stays
+in a home) need to be kept track of through a database.
 
 ### 12. Discuss the database relations to be implemented.
 
 We have four tables in our database.
 
-* users: 
+* users: Keeps track of users of the app. 
 * workshops:
 * pieces:
 * followers:
