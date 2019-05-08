@@ -18,7 +18,7 @@ Even if the desire to purchase original artworks is widespread, there are artifi
 barriers in place which prevent this. These barriers exist both on the side of purchase
 and the side of sale. These partly have to do with the inefficient social institutions which
 surround this market, and partly to do with geographical limitations. For example,
-the modish nature of gallerists and other players may exclude outsiders who have a
+modish gallerists and other players may exclude outsiders who have a
 legitimate niche in the market. Likewise, the geographical limitations of brick-and-mortar
 galleries may limit buyers to those who can visit those locations.
 
@@ -112,12 +112,25 @@ in a home) need to be kept track of through a database.
 
 ### 12. Discuss the database relations to be implemented.
 
-We have four tables in our database.
+When we started working on the app we had settled on only three tables in the database.
 
-* users: Keeps track of users of the app. 
-* workshops:
-* pieces:
-* followers:
+* **users**: Keeps track of users of the app. "Artist" and "Admin" flags keep track of the
+authorisation and status of these users. We used the Devise gem to create this model and
+take care of most of the implementation details. We also added a list of keywords in order
+to prioritise which artworks would be shown to which users.
+* **workshops**: Keeps track of users of the app who also sell artworks.  This table contains
+all of the business information that is required in addition to standard user information
+in cases where that user is playing a vendor role. 
+* **pieces**: Keeps track of transacted artworks. Includes information to categorise the piece
+to prioritise showing them to users who have listed those categories in their interests.
+
+On Monday morning we found ourselves with a MVP and a week of time, so we decided to
+implement additional features. One of these was the ability of users to follow artists,
+so that new and current pieces by that artist would appear at the top of the list of
+pieces in their feed. That required us to create a join table to keep track of who was
+following who.
+
+* **followers**: A join table to keep track of many-to-many relationships between users and workshops.
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
