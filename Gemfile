@@ -66,23 +66,12 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise', '~> 4.6'
-
 gem 'cancancan', '~> 3.0'
 gem 'faker', '~> 1.9'
-
 gem 'aws-sdk-s3', '~> 1.36'
 gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails', '~> 4.3'
 gem 'stripe', '~> 4.16'
-
 gem 'pry', '~> 0.12.2'
-
-gem 'mini_magick', '~> 4.9'
-
 gem 'http', '~> 4.1'
-
 gem 'json', '~> 2.2'
-
-gem 'piet', '~> 0.2.6'
-
-gem 'piet-binary', '~> 0.2.0'
