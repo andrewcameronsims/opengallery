@@ -7,13 +7,8 @@
 
 tags_array = ['Dutch', 'Portrait', 'Sculpture', 'Landscape', 'Contemporary']
 
-piece_urls = Painting.get_urls
-# piece_urls.shuffle!
 piece_filenames = []
-
-# puts "Downloading piece images to drive..."
-
-piece_urls[0...10].each_with_index do |url, index|
+10.times do |index|
 #   `curl -o piece_#{index}.jpg #{url}`
   piece_filenames << "piece_#{index}.jpg"
 end
