@@ -75,7 +75,7 @@ counter = 0
     p.sold = [true, false].sample # method on arrays which chooses randomly
     p.user_id = User.ids[0..4].sample if p.sold? # get all user ids and then take first 5 and choose a random one
     p.workshop_id = w.id
-    p.uploaded_image.attach(io: File.open(piece_filenames[counter]), filename: piece_filenames[counter])
+    p.uploaded_image.attach(io: File.open('./app/assets/images/' + piece_filenames[counter]), filename: piece_filenames[counter])
     p.tags = tags_array.shuffle[0..1]
     p.save
 
