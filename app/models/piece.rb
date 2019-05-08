@@ -6,7 +6,6 @@ class Piece < ApplicationRecord
   validates :materials, presence: true
   validates :dimensions, presence: true
   validates :description, presence: true
-  validates :tags, presence: true
   validates :uploaded_image, presence: true
 
   belongs_to :user, optional: true
