@@ -210,22 +210,39 @@ Our application utilizes Ruby version '2.5.1'and following softwares:
 #### Gem dependencies:
 
 gem 'rails', '~> 5.2.3'
+
 gem 'pg', '>= 0.18', '< 2.0' 
+
 gem 'puma', '~> 3.11'  
+
 gem 'sass-rails', '~> 5.0'
+
 gem 'devise', '~> 4.6' 
+
 gem 'cancancan', '~> 3.0'
+
 gem 'faker', '~> 1.9'
+
 gem 'aws-sdk-s3', '~> 1.36'
+
 gem 'bootstrap', '~> 4.3'
+
 gem 'jquery-rails', '~> 4.3'
+
 gem 'stripe', '~> 4.16'
+
 gem 'pry', '~> 0.12.2'
+
 gem 'dotenv-rails', groups: %i[development test]
+
 gem 'jbuilder', '~> 2.5'
+
 gem 'coffee-rails', '~> 4.2'
+
 gem 'turbolinks', '~> 5'
+
 gem 'bootsnap', '>= 1.1.0'
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 Our application is action-packed with authentication (Devise), authorization (CanCanCan), image uploading capablity through *third-party services (AWS), payment system (Stripe), transactional emails (Mailgun), filtering capablity images (API) and deployed on Heroku.
