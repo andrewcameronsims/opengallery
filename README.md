@@ -43,7 +43,36 @@ app through HTTP request-and-response cycles between the browser and the Heroku 
 
 ### 5. Identify and describe the software to be used in your App.
 
+Our application utilizes Ruby version '2.5.1'and following softwares: 
 
+* Ruby on Rails provided us with a structure for our Ruby code,allowing us to launch application faster. 
+* Visual Studio Code helped us in writing our source-code and supported debugging. 
+* Ruby gems as a packet manager gave us access to various libraries and programs and easily manage the installation process.
+
+#### Gem dependencies:
+
+gem 'rails', '~> 5.2.3'
+gem 'pg', '>= 0.18', '< 2.0' 
+gem 'puma', '~> 3.11'  
+gem 'sass-rails', '~> 5.0'
+gem 'devise', '~> 4.6' 
+gem 'cancancan', '~> 3.0'
+gem 'faker', '~> 1.9'
+gem 'aws-sdk-s3', '~> 1.36'
+gem 'bootstrap', '~> 4.3'
+gem 'jquery-rails', '~> 4.3'
+gem 'stripe', '~> 4.16'
+gem 'pry', '~> 0.12.2'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'jbuilder', '~> 2.5'
+gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
+gem 'bootsnap', '>= 1.1.0'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+Our application is action-packed with authentication (Devise), authorization (CanCanCan), image uploading capablity through *third-party services (AWS), payment system (Stripe), transactional emails (Mailgun), filtering capablity images (API) and deployed on Heroku.
+
+* Third-party applications are mentioned in detail on Answer 10.
 
 ### 6. Identify the database to be used in your App and provide a justification for your choice.
 
@@ -97,10 +126,12 @@ in idiomatic Ruby.
 
 ### 10. Detail any third party services that your App will use.
 
-* Mailgun
-* Stripe
-* AWS S3
-* Ruby gems
+Apart from the Ruby Gem depencies mentioned in question 5, our application uses:
+* Mailgun - Provides the application with mailer functionlity. Buyers and Sellers recieve purchase invoices through emails.
+* Stripe - Implements a payment system for our application by charging appropriate amount through credit card.
+* Amazon web services - Provides on-demand cloud image storage services.
+* Fontawesome - Provides icons for follower action.
+* Bootstrap - Provides CSS support for styling.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
@@ -164,7 +195,7 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 14. Provide your database schema design.
 
-* Attach image
+![](./docs/database.png)
 
 ### 15. Provide User stories for your App.
 
@@ -180,26 +211,78 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 18. Discuss how Agile methodology is being implemented in your project.
 
-* Daily standups
-* Parallel development (not styling last) for MVP as soon as possible
+We adopted aspects of Agile methodology in our project. We performed daily
+stand-ups with other groups. During these we would spend under a minute explaining
+what we had just achieved, our work goals for the day, and what 
+blockers were standing in the way of us achieving these goals.
+We used the online Trello system to keep track of our workflow and to divide
+the work between us according to TODO tasks, tasks in progress, and completed
+tasks. Another agile method we adopted was pair programming. We did this on tasks
+where it was particularly important for us to be on the same page (e.g., initial
+configuration). Finally, we worked in iterations in the sense that we did not separate
+types of goals serially (e.g., functionality then styling) in the traditional
+waterfall style. Instead, we performed these tasks in parallel. That allowed us 
+to have an MVP up and running as soon as possible.
 
 ### 19. Provide an overview and description of your Source control process.
 
-* Typical git workflow
+We adopted a typical Git workflow, using git on our local machines and GitHub for
+the remote copies of our repository. Whenever we wanted to add a new piece of
+functionality or styling to the existing codebase, we would open a new branch with
+an appropriate name and work within this. When we had completed the feature, we 
+would push the branch to GitHub and make the PR, sometimes associated with further
+explanation if we had been apart during the work or if our commits might not be
+transparent in their purposes. Then the PR would be pulled up into the master
+branch. Occasionally we could commit directly to the master branch when the changes
+were straightforward (e.g., writing this README).
 
 ### 20. Provide an overview and description of your Testing process.
 
-* Lots of manual testing, different monitors etc.
+Despite good intentions, we neglected any kind of automated testing (e.g., Minitest)
+from the beginning, limiting ourselves to manual testing through interaction with
+the app in the browser. Feeling an acute awareness of our deadline, we told ourselves
+that we would be able to implement the coded tests post-hoc, and that even if
+this did not inform development that they might anyway catch bugs in regression.
+
+That turned out to be a mistake, because there were obstacles in the way of post-hoc
+testing that made any sort of automated testing infeasible within our timeframe.
+For example, there were issues with database permissions that made the setup and
+breakdown process fail when we tried to run `rails t`. There were also some problems
+that remain obscure to us, but that had to do with our user_id foreign keys, the way
+devise models users, and our default user fixtures. The lesson we've taken from this 
+is to build in a testing framework from the ground floor so that these kinds of 
+headaches don't occur later on and can be resolved immediately.
 
 ### 21. Discuss and analyse requirements related to information system security.
 
-* Authenticity tokens to prevent CSRF
-* Authorisation of user requests
+There are many such requirements, both in the development and production environments.
+In the development environment, we need to be sure that sensitive data (such as API keys)
+are not carelessly uploaded into publicly-accessible git repositories such as GitHub.
+One way to prevent this is to keep that data in an `.env` file that is included in
+our `.gitignore` and referenced in the code of the application. Another is to use the
+built-in rails credentials functionality which encrypts that information using a master
+key that is excluded from the git.
+
+On the production side, we need to be sure that the information in our database can only
+be accessed in the way that we want it to be accessed -- that is to say, by users who are
+authenticated as genuine and authorised to see that particular data.
 
 ### 22. Discuss methods you will use to protect information and data.
 
-* Authentication and authorisation
+We have implemented authentication and authorisation in our application with the help
+of Devise, which is a third-party library for Rails. 
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
-In order to maximise the reach of our app, we have decided to make it GDPR compliant.
+Businesses in Australia who come into contact with user data have to make a decision
+about whether or not they want to be GDPR compliant. GDPR (General Data Protection
+Regulation) is a body of law that applies in European countries and to European 
+citizens, and Australian businesses who want to access the European market therefore have
+to comply with that legislation.
+
+The GDPR sets out the rights of individuals with respect to their personal data. Amongst
+the legal obligations of GDPR-compliant businesses are that they are transparent with
+their customers with respect to what data they are collecting and for what purpose, that
+they do not collect any more data that these purposes imply, that they erase that 
+data upon the request of the user, and that they keep this data accurate and up-to-date.
+They should also take reasonable steps to keep this data secure against unauthorised access.
