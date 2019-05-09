@@ -164,7 +164,7 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 14. Provide your database schema design.
 
-* Attach image
+![](./docs/database.png)
 
 ### 15. Provide User stories for your App.
 
@@ -180,16 +180,47 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 18. Discuss how Agile methodology is being implemented in your project.
 
-* Daily standups
-* Parallel development (not styling last) for MVP as soon as possible
+We adopted aspects of Agile methodology in our project. We performed daily
+stand-ups with other groups. During these we would spend under a minute explaining
+what we had just achieved, our work goals for the day, and what 
+blockers were standing in the way of us achieving these goals.
+We used the online Trello system to keep track of our workflow and to divide
+the work between us according to TODO tasks, tasks in progress, and completed
+tasks. Another agile method we adopted was pair programming. We did this on tasks
+where it was particularly important for us to be on the same page (e.g., initial
+configuration). Finally, we worked in iterations in the sense that we did not separate
+types of goals serially (e.g., functionality then styling) in the traditional
+waterfall style. Instead, we performed these tasks in parallel. That allowed us 
+to have an MVP up and running as soon as possible.
 
 ### 19. Provide an overview and description of your Source control process.
 
-* Typical git workflow
+We adopted a typical Git workflow, using git on our local machines and GitHub for
+the remote copies of our repository. Whenever we wanted to add a new piece of
+functionality or styling to the existing codebase, we would open a new branch with
+an appropriate name and work within this. When we had completed the feature, we 
+would push the branch to GitHub and make the PR, sometimes associated with further
+explanation if we had been apart during the work or if our commits might not be
+transparent in their purposes. Then the PR would be pulled up into the master
+branch. Occasionally we could commit directly to the master branch when the changes
+were straightforward (e.g., writing this README).
 
 ### 20. Provide an overview and description of your Testing process.
 
-* Lots of manual testing, different monitors etc.
+Despite good intentions, we neglected any kind of automated testing (e.g., Minitest)
+from the beginning, limiting ourselves to manual testing through interaction with
+the app in the browser. Feeling an acute awareness of our deadline, we told ourselves
+that we would be able to implement the coded tests post-hoc, and that even if
+this did not inform development that they might anyway catch bugs in regression.
+
+That turned out to be a mistake, because there were obstacles in the way of post-hoc
+testing that made any sort of automated testing infeasible within our timeframe.
+For example, there were issues with database permissions that made the setup and
+breakdown process fail when we tried to run `rails t`. There were also some problems
+that remain obscure to us, but that had to do with our database relations, the way
+devise models users, and our default user fixtures. The lesson we've taken from this 
+is to build in a testing framework from the ground floor so that these kinds of 
+headaches don't occur later on.
 
 ### 21. Discuss and analyse requirements related to information system security.
 
@@ -202,4 +233,10 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
-In order to maximise the reach of our app, we have decided to make it GDPR compliant.
+Businesses in Australia who come into contact with user data have to make a decision
+about whether or not they want to be GDPR compliant. GDPR (General Data Protection
+Regulation) is a body of law that applies in European countries and to European 
+citizens, and Australian business who want to access the European market therefore have
+to comply with that legislation.
+
+The GDPR sets out the rights of individuals with respect to their personal data.
