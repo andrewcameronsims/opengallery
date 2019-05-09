@@ -1,16 +1,16 @@
 <div class="container-fluid">
-  <div class="d-flex flex-wrap justify-content-around mt-5">
+  <div class="d-flex flex-wrap mt-5 justify-content-around">
     <% @pieces.each do |piece| %>
-      <div class="card mb-5 shadow" style="width: 40%;">
+      <div class="card mb-5 shadow col-md-5" style="height: 100vh;">
         <% if piece.uploaded_image.attached? %>
-          <%= image_tag piece.uploaded_image.service_url, class: "card-img-top cover" %>
+          <%= image_tag piece.uploaded_image.service_url, class: "card-img-top cover height70" %>
         <% end %> 
         <div class="card-body">
           <div class="row pb-3">
-            <div class="col">
+            <div class="col-md-7">
               <h3 class="card-title"><%= piece.name %></h3>
             </div>
-            <div class="col">
+            <div class="col-md">
               <p class="text-muted text-right">by <%= piece.workshop.user.full_name %></p>
               <% piece.tags.each do |tag| %>
                 <div class="badge badge-light float-right border"><%= tag %></div><br />
