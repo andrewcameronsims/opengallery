@@ -199,7 +199,47 @@ follow many artists (workshops), and workshops may themselves have many users.
 
 ### 15. Provide User stories for your App.
 
-* Copy paste and proofread stories
+User stories have been planned as per role, action and business goal/reasoning).
+
+As a User (role), 
+I want to browse all the pieces (action),
+So that I can select and buy the piece I like (business-goal/reasoning).
+
+As a User,
+When I'm attempting to sign in, I should see a way to reset my password,
+So that I can confirm my new password when resetting.
+
+As a User,
+I want a way to contact with artists,
+So that I can order pieces after a conversation.
+
+As a User,
+I want an easy payment process,
+So that I can be sure of my purchase.
+
+As a User,
+I should get a payment reciept,
+So that I can easily track my finances.
+
+As a User,
+I want to follow artists,
+So that I can see their newest pieces first and accordingly make a selection.
+
+As an Artist,
+I can even buy pieces from other artists,
+So that I can have a my personal collection of antique pieces from the gallery.
+
+As an Artist,
+I can add my piece,
+So that Users can buy it from the gallery.
+
+As an Artist,
+I can update my piece,
+So that Users can buy final works from the gallery.
+
+As an Artist,
+I should get a payment reciept,
+So that I can easily track to whom I need to send the product and keep a tab on my inventory.
 
 ### 16. Provide Wireframes for your App.
 
