@@ -4,29 +4,22 @@
 
 	<div class="col">
 		<h1>Send us an email.</h1>
-
 		<%= form_tag "https://formspree.io/testuserapp6@gmail.com", method: "POST", class: "email-form" do |form| %>
-		
-		<p> 
-				<%= label_tag 'name' %><br />
-				<%= text_field_tag 'name' %>
-		</p>
-
-		<p> 
-				<%= label_tag 'email' %><br />
-				<%= text_field_tag 'email' %>
-		</p>
-
-
-		<p> 
-				<%= label_tag 'message' %><br />
-				<%= text_area_tag 'message' %>
-		</p>
-
-		<p>
-				<%= submit_tag 'create' %>
-		</p>
-
+			<p> 
+					<%= label_tag 'name' %><br />
+					<%= text_field_tag 'name' %>
+			</p>
+			<p> 
+					<%= label_tag 'email' %><br />
+					<%= text_field_tag 'email' %>
+			</p>
+			<p> 
+					<%= label_tag 'message' %><br />
+					<%= text_area_tag 'message' %>
+			</p>
+			<p>
+					<%= submit_tag 'create' %>
+			</p>
 		<% end %>
 	</div>
 </div>
