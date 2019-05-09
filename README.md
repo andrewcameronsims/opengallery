@@ -2,7 +2,165 @@
 ## The Online Art Gallery
 Andrew Sims and Seep Gulati
 
+[Our Application](http://open-gallery.herokuapp.com)
+
 [Github Repository](https://github.com/andrewcameronsims/opengallery)
+
+Description of your project
+
+* Problem definition / purpose
+An online marketplace to connect visual artists and art-lovers. Our platform gives visual artists the opportunity not only to sell their works but also to set-up patronage relationships with art-lovers who can choose to “follow” them and be the first to see new works as they go up for sale. The products are original visual “pieces”(either painting, drawings, or sculpture) -- basically things that you would find in a gallery which has pieces for sale.
+
+* Site Map
+![](./docs/sitemap.png)
+
+Functionality / features
+- Open Gallery allows users to browse visual art pieces.
+- Open Gallery allows user to interact with Open Gallery admin through Contact Us form in the footer.
+- Open Gallery allows artists to sell their art pieces and also buy art pieces from other artists. 
+- Open Gallery allows the signed-in users to buy visual art pieces.
+- Open Gallery allows the signed-in users to follow their favourite artists.
+- Open Gallery allows the signed-in users to contact the artists through a form.
+- Open Gallery allows the signed-in users to contact the artists in-built contact form.
+
+* Website screenshots (TO ADD)
+
+
+
+
+
+Tech stack (e.g. html, css, deployment platform, etc)
+- Ruby on Rails framework
+- ERB
+- HTML
+- CSS
+- SASS
+- Deployment on Heroku
+
+Instructions on how to setup, configure and use your App. (TO ADD)
+
+
+
+
+
+
+
+
+
+
+Brainstorming
+
+Initial idea
+![](./docs/initial-idea.png)
+
+Final Idea
+![](./docs/final-idea.jpg)
+
+[Detailed Design Process](https://docs.google.com/document/d/1nvvriwgaqZyM2bJsPWC-SLGM1BwB4ZtRzdg3L8unjTE/edit)
+
+Design documentation including,
+- Design process
+- User stories
+
+* Color 
+We have used Orange as our main colour through-out our application. Orange blends well with timeless Black and White combination.
+
+Orange has been used for its association with ‘creativity’, ‘fascination’,‘stimulation’ and ‘contemporary’ feelings. As an online-visual art gallery for amateur artists standing out was important and orange with its high-visibility power helps in catching attention and highlighting the most important elements of our website design.
+
+![](./docs/mood-board.png)
+
+* Logo
+We came-up with few renditions of logo and decided the simple option with ‘Playfair font’ and brand colours.
+![](./docs/logo-options.png)
+
+* Sketches for layout
+![](./docs/sketches.jpg)
+
+* Workflow diagram of the user journey/s.
+![](./docs/workflow-diagram.png)
+
+* Wireframes
+![](./docs/wireframes.png)
+
+Database Entity Relationship Diagrams
+![](./docs/database.png)
+
+* Test email id for checking mailer functionality 
+UserId: testuserapp6@gmail.com 
+Password: StrongPassword1234!
+
+Details of planning process 
+Project plan & timeline
+
+Week 1:
+Monday
+- ERD
+- Trello
+- Wireframes
+- Design brief
+- Sign off
+Tuesday
+- Make a list of required controllers/views/models
+- Generate controllers (with actions and views), migrations, models, and mailers
+- Pull skeleton design onto each laptop
+- Add dependencies and config (add bootstrap, faker gem, devise, stripe, mailgun, amazon image hosting)
+- Seeding
+- Think about responsibilities/delegation
+Wednesday
+- Fix seeder script
+- Draft Navbar
+- Draft Footer
+- Customize Devise
+- Draft 'Home' pieces#Home
+- Create Routes - Routes.rb
+- Fill out methods for CONTROLLERS- Workshop, Piece
+Thursday
+Write tests
+- Draft 'Invoice' confirmation View
+- Draft 'Invoice' confirmation View
+- Draft 'Pieces#Show view
+- Draft 'Pieces#New view
+Friday
+- Working on making app MVP ready
+Sunday
+- MVP done
+
+Week 2:
+Monday
+- Deployed MVP on Heroku
+- Worked on a new model for Follower
+Tuesday
+- Follower functionality through JS
+- Validations
+Wednesday
+- Bug fixes with deployment
+- Validations
+Thursday
+- Bug fixes with deployment
+- README.md
+- Ensure Responsive design in mobile
+- Complete wireframes and designs in Figma
+- Workflow diagram
+Friday
+- Make sure code is well commented
+- Presentation
+- Divide parts of the presentation
+- Submission
+
+Screenshots of Trello board(s)
+
+Trello (few pics)
+[Our Trello Board](https://trello.com/b/GJDgjVyc/ror-project)
+
+
+
+
+
+
+
+
+
+
 
 ## Short Answer Questions
 
@@ -243,7 +401,7 @@ So that I can easily track to whom I need to send the product and keep a tab on 
 
 ### 16. Provide Wireframes for your App.
 
-* Attach figma images
+![](./docs/wireframes.png)
 
 ### 17. Describe the way tasks are allocated and tracked in your project.
 
