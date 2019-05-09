@@ -92,29 +92,29 @@
       </div>
       <div class="modal-body mx-3">
       <%= form_tag "https://formspree.io/testuserapp6@gmail.com", method: "POST", class: "d-flex flex-column align-items-around" do |form| %>
-        <div class="md-form mb-5">
+        <div class="md-form mb-3">
 					<%= label_tag 'name' %><br />
-					<%= text_field_tag 'name', value="#{@current_user.full_name if user_signed_in?}" %>
+					<%= text_field_tag 'name', value="#{@current_user.full_name if user_signed_in?}", style: "width: 100%;" %>
         </div>
 
-        <div class="md-form mb-5">
+        <div class="md-form mb-3">
 					<%= label_tag 'email' %><br />
-					<%= text_field_tag 'email', value="#{@current_user.email if user_signed_in?}" %>
+					<%= text_field_tag 'email', value="#{@current_user.email if user_signed_in?}", style: "width: 100%;" %>
         </div>
 
-        <div class="md-form mb-5">
+        <div class="md-form mb-3">
 					<%= label_tag 'subject' %><br />
-					<%= text_field_tag 'subject', value="About your artwork #{@piece.name}" %> 
+					<%= text_field_tag 'subject', value="About your artwork #{@piece.name}", style: "width: 100%;" %> 
         </div>
 
         <div class="md-form">
 					<%= label_tag 'message' %><br />
-					<%= text_area_tag 'message' %>
+					<%= text_area_tag 'message', placeholder="", style: "width: 100%;" %>
         </div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-					<%= submit_tag 'create' %>
+					<%= submit_tag 'Send email!', class: 'btn white-on-orange' %>
       </div>
       <% end %>
     </div>
