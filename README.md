@@ -43,7 +43,36 @@ app through HTTP request-and-response cycles between the browser and the Heroku 
 
 ### 5. Identify and describe the software to be used in your App.
 
+Our application utilizes Ruby version '2.5.1'and following softwares: 
 
+* Ruby on Rails provided us with a structure for our Ruby code,allowing us to launch application faster. 
+* Visual Studio Code helped us in writing our source-code and supported debugging. 
+* Ruby gems as a packet manager gave us access to various libraries and programs and easily manage the installation process.
+
+#### Gem dependencies:
+
+gem 'rails', '~> 5.2.3'
+gem 'pg', '>= 0.18', '< 2.0' 
+gem 'puma', '~> 3.11'  
+gem 'sass-rails', '~> 5.0'
+gem 'devise', '~> 4.6' 
+gem 'cancancan', '~> 3.0'
+gem 'faker', '~> 1.9'
+gem 'aws-sdk-s3', '~> 1.36'
+gem 'bootstrap', '~> 4.3'
+gem 'jquery-rails', '~> 4.3'
+gem 'stripe', '~> 4.16'
+gem 'pry', '~> 0.12.2'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'jbuilder', '~> 2.5'
+gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
+gem 'bootsnap', '>= 1.1.0'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+Our application is action-packed with authentication (Devise), authorization (CanCanCan), image uploading capablity through *third-party services (AWS), payment system (Stripe), transactional emails (Mailgun), filtering capablity images (API) and deployed on Heroku.
+
+* Third-party applications are mentioned in detail on Answer 10.
 
 ### 6. Identify the database to be used in your App and provide a justification for your choice.
 
@@ -97,10 +126,12 @@ in idiomatic Ruby.
 
 ### 10. Detail any third party services that your App will use.
 
-* Mailgun
-* Stripe
-* AWS S3
-* Ruby gems
+Apart from the Ruby Gem depencies mentioned in question 5, our application uses:
+* Mailgun - Provides the application with mailer functionlity. Buyers and Sellers recieve purchase invoices through emails.
+* Stripe - Implements a payment system for our application by charging appropriate amount through credit card.
+* Amazon web services - Provides on-demand cloud image storage services.
+* Fontawesome - Provides icons for follower action.
+* Bootstrap - Provides CSS support for styling.
 
 ### 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
@@ -217,16 +248,18 @@ That turned out to be a mistake, because there were obstacles in the way of post
 testing that made any sort of automated testing infeasible within our timeframe.
 For example, there were issues with database permissions that made the setup and
 breakdown process fail when we tried to run `rails t`. There were also some problems
-that remain obscure to us, but that had to do with our database relations, the way
+that remain obscure to us, but that had to do with our user_id foreign keys, the way
 devise models users, and our default user fixtures. The lesson we've taken from this 
 is to build in a testing framework from the ground floor so that these kinds of 
-headaches don't occur later on.
+headaches don't occur later on and can be resolved immediately.
 
 ### 21. Discuss and analyse requirements related to information system security.
 
+
+
 * Authenticity tokens to prevent CSRF
 * Authorisation of user requests
-*
+* 
 
 ### 22. Discuss methods you will use to protect information and data.
 
