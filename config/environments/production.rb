@@ -66,6 +66,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "opengallery_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { :host => 'open-gallery.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    domain: ENV['MAILGUN_DOMAIN'],
+    user_name: ENV['MAILGUN_USER'],
+    password: ENV['MAILGUN_PW'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
