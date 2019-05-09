@@ -80,15 +80,20 @@ manner in which this information will be presented.
 how the view will be used in order to filter that information to the user. 
 (E.g., by triggering one rather than another view)
 
-In Rails, this architecture is implemented by the ActiveRecord (model), 
-ActionController (controller), and .erb templates (view).
-
 ### 9. Explain the different high-level components (abstractions) in your App.
 
 Our application implements the high-level abstractions of MVC in terms of the
-pre-existing Rails conventions. There are additional details on this level which can
-be described. For example, we have included additional methods within our model which
-allow it to be sorted according to user preferences before being passed to the view.
+pre-existing Rails conventions. In Rails, this architecture is implemented by 
+the ActiveRecord (allows us to interact with a database without writing SQL queries, 
+and allowing us to treat the model as a Ruby object), ActionController (controller), 
+and .erb templates (view). For example, we have included additional methods within 
+our model which allow it to be sorted according to user preferences before being 
+passed to the view. Rails contains many other abstraction layers over other services. 
+For example, ActiveView form helpers allow us to produce forms for our models without
+writing many lines of HTML, and our resourceful syntax allow us to produce the standard
+RESTful routes in less lines of code. Finally, ActiveStorage serves as a helpful
+abstraction layer over AWS S3 in our case and facilitates our usage of that service
+in idiomatic Ruby.
 
 ### 10. Detail any third party services that your App will use.
 
@@ -121,8 +126,9 @@ to prioritise which artworks would be shown to which users.
 * **workshops**: Keeps track of users of the app who also sell artworks.  This table contains
 all of the business information that is required in addition to standard user information
 in cases where that user is playing a vendor role. 
-* **pieces**: Keeps track of transacted artworks. Includes information to categorise the piece
-to prioritise showing them to users who have listed those categories in their interests.
+* **pieces**: Keeps track of transacted artworks. Includes information to categorise the 
+piece to prioritise showing them to users who have listed those categories in 
+their interests.
 
 On Monday morning we found ourselves with a MVP and a week of time, so we decided to
 implement additional features. One of these was the ability of users to follow artists,
@@ -134,13 +140,27 @@ following who.
 
 ### 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other.
 
-Given the slim database the relations between our tables became important for playing
-the role that these missing tables would otherwise play.
+Given the slim database strategy we adopted, the relations between our tables
+became important for playing the role that these missing tables would otherwise play.
 
-* all workshops belong to a user
-* all pieces belong to a workshop
-* some pieces belong to a user
-* all followers belong to a user and a workshop
+* **a one-to-one relationship between workshops and users**: Since additional 
+information is required for business purposes when a user takes up a vendor role,
+and this information is stored in the workshop table, this relationship was required
+in order to link business information with the appropriate user.
+
+* **a many-to-one relationship between pieces and workshops**: One artist may have
+many pieces on the site that she wishes to sell. This relationship keeps track of that
+initial ownership between the piece and its artist.
+
+* **a many-to-one relationship between users and pieces**: We needed to persist
+information about purchases in the case of dispute and for audit purposes. However,
+we do not have a dedicated table in our database for purchases. Instead, we had a
+many-to-one relationship between users and pieces which keep track of the buyer of
+a piece.
+
+* **a many-to-many relationship between users and workshops**: This is a join table
+which keeps track of the following relationship between users and workshops. Users may
+follow many artists (workshops), and workshops may themselves have many users.
 
 ### 14. Provide your database schema design.
 
