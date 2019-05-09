@@ -25,14 +25,15 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
-
+  
     # Customer was charged. Send an invoice.
     PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
 
     # Artist sold a piece. Send a notification.
     PurchaseMailer.with(user: artist.full_name).seller_email.deliver_now
+    
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
   end
 end
