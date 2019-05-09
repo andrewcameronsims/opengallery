@@ -23,16 +23,20 @@
 
       <%= form.hidden_field :user_id, value: @user.id %>
       <div class="field my-4">
-        <%= form.label :bio %><br />
+        <%= form.label :bio, "Artist Biography" %><br />
         <%= form.text_area :bio, class: "fill text-area-high" %>
       </div>
       <div class="field my-4">
-        <%= form.label :bank_account %><br />
+        <%= form.label :bank_account, "Bank Account Details" %><br />
         <%= form.text_field :bank_account, class: "fill" %>
       </div>
       <div class="field my-4">
-        <%= form.label :auto_respond_msg %><br />
+        <%= form.label :auto_respond_msg, "Automatic Response Message" %><br />
         <%= form.text_area :auto_respond_msg, class: "fill text-area-high"  %>
+        <br /><small>
+          Give your customers an automatic response when they buy a piece,
+          informing them when you will be able to get back to them.
+        </small>
       </div>
       <p>
         <%= form.submit "Start your workshop", class: "btn white-on-orange" %>
