@@ -226,6 +226,7 @@ headaches don't occur later on.
 
 * Authenticity tokens to prevent CSRF
 * Authorisation of user requests
+*
 
 ### 22. Discuss methods you will use to protect information and data.
 
@@ -239,4 +240,9 @@ Regulation) is a body of law that applies in European countries and to European
 citizens, and Australian business who want to access the European market therefore have
 to comply with that legislation.
 
-The GDPR sets out the rights of individuals with respect to their personal data.
+The GDPR sets out the rights of individuals with respect to their personal data. Amongst
+the legal obligations of GDPR-compliant businesses are that they are transparent with
+their customers with respect to what data they are collecting and for what purpose, that
+they do not go beyond these limits, that they erase that data upon the request of the
+user, and that they keep this data accurate and up-to-date. They should also keep
+this data secure against unauthorised access.
