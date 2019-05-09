@@ -6,10 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  padding-top: 95px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
 }
@@ -84,4 +80,8 @@ p, a {
 
 .text-area-high {
   height: 150px;
+}
+
+.height50 {
+  height: 70%;
 }
