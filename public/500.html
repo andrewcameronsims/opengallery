@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet"> 
   <title>Server error</title>
   <style>
     
+    * {
+      margin: 0;
+    }
+
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 4em;
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
     .container-fluid {
@@ -23,11 +28,25 @@
       color: white;
     }
 
+    .row {
+      display: flex;
+    }
+
+    .col {
+      width: 50vw;
+      display: flex;
+      align-items: center;
+    }
+
+    .text-right {
+      justify-content: flex-end;
+    }
+
   </style>
 </head>
 <body>
   <div class="container-fluid row">
-    <div class="col orange-on-white d-flex justify-content-end align-items-center">
+    <div class="col text-right orange-on-white d-flex justify-content-end align-items-center">
       <h1 class="text-right">500</h1>
     </div>
     <div class="col d-flex align-items-center">
