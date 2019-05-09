@@ -269,8 +269,15 @@ authenticated as genuine and authorised to see that particular data.
 
 ### 22. Discuss methods you will use to protect information and data.
 
-We have implemented authentication and authorisation in our application with the help
-of Devise, which is a third-party library for Rails. 
+We have implemented authentication in our application with the help of Devise, which is 
+a third-party library for Rails. That creates for us a user object with registration and
+session controllers which handle registration, logging in, and  all of the associated
+authentication apparatus.
+
+Authentication is partly handled by CanCan, which is another third-party library which sets
+permissions on RESTful actions. However, we also built in our own authentication methods
+by setting user_id checks on the edit and delete actions so that only users who actually
+own pieces can update or destroy them.
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
