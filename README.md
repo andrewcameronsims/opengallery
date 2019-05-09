@@ -6,15 +6,15 @@ Andrew Sims and Seep Gulati
 
 [Github Repository](https://github.com/andrewcameronsims/opengallery)
 
-Description of your project
+## Project Description
 
-* Problem definition / purpose
+### Problem definition
 An online marketplace to connect visual artists and art-lovers. Our platform gives visual artists the opportunity not only to sell their works but also to set-up patronage relationships with art-lovers who can choose to “follow” them and be the first to see new works as they go up for sale. The products are original visual “pieces”(either painting, drawings, or sculpture) -- basically things that you would find in a gallery which has pieces for sale.
 
-* Site Map
+### Site Map
 ![](./docs/sitemap.png)
 
-Functionality / features
+### Functionality
 - Open Gallery allows users to browse visual art pieces.
 - Open Gallery allows user to interact with Open Gallery admin through Contact Us form in the footer.
 - Open Gallery allows artists to sell their art pieces and also buy art pieces from other artists. 
@@ -23,32 +23,28 @@ Functionality / features
 - Open Gallery allows the signed-in users to contact the artists through a form.
 - Open Gallery allows the signed-in users to contact the artists in-built contact form.
 
-* Website screenshots (TO ADD)
+### Outside inspiration
 
+We were inspired by other two-marketplaces and particularly those dealing with
+arts and crafts, such as [Etsy](https://www.etsy.com/) and 
+[Bluethumb](https://bluethumb.com.au/).
 
+### Technology Stack
 
+Open Gallery is built using Ruby-on-Rails, with Ruby as the serverside language
+and HTML and CSS for the front-end markup. We run a Postgresql instance as our database.
+We also used some minimal javascript and jQuery for AJAX requests. The app is 
+deployed on Heroku.
 
+## Installation
 
-Tech stack (e.g. html, css, deployment platform, etc)
-- Ruby on Rails framework
-- ERB
-- HTML
-- CSS
-- SASS
-- Deployment on Heroku
+1. Navigate to a location where you want to install the source and run `git clone https://github.com/andrewcameronsims/opengallery.git`
 
-Instructions on how to setup, configure and use your App. (TO ADD)
+2. Reset the database using `rails run db:reset`
 
+3. Run `rails server` to run the server in development mode.
 
-
-
-
-
-
-
-
-
-Brainstorming
+## Design process
 
 Initial idea
 ![](./docs/initial-idea.png)
