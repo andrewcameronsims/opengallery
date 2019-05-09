@@ -255,27 +255,34 @@ headaches don't occur later on and can be resolved immediately.
 
 ### 21. Discuss and analyse requirements related to information system security.
 
+There are many such requirements, both in the development and production environments.
+In the development environment, we need to be sure that sensitive data (such as API keys)
+are not carelessly uploaded into publicly-accessible git repositories such as GitHub.
+One way to prevent this is to keep that data in an `.env` file that is included in
+our `.gitignore` and referenced in the code of the application. Another is to use the
+built-in rails credentials functionality which encrypts that information using a master
+key that is excluded from the git.
 
-
-* Authenticity tokens to prevent CSRF
-* Authorisation of user requests
-* 
+On the production side, we need to be sure that the information in our database can only
+be accessed in the way that we want it to be accessed -- that is to say, by users who are
+authenticated as genuine and authorised to see that particular data.
 
 ### 22. Discuss methods you will use to protect information and data.
 
-* Authentication and authorisation
+We have implemented authentication and authorisation in our application with the help
+of Devise, which is a third-party library for Rails. 
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
 Businesses in Australia who come into contact with user data have to make a decision
 about whether or not they want to be GDPR compliant. GDPR (General Data Protection
 Regulation) is a body of law that applies in European countries and to European 
-citizens, and Australian business who want to access the European market therefore have
+citizens, and Australian businesses who want to access the European market therefore have
 to comply with that legislation.
 
 The GDPR sets out the rights of individuals with respect to their personal data. Amongst
 the legal obligations of GDPR-compliant businesses are that they are transparent with
 their customers with respect to what data they are collecting and for what purpose, that
-they do not go beyond these limits, that they erase that data upon the request of the
-user, and that they keep this data accurate and up-to-date. They should also keep
-this data secure against unauthorised access.
+they do not collect any more data that these purposes imply, that they erase that 
+data upon the request of the user, and that they keep this data accurate and up-to-date.
+They should also take reasonable steps to keep this data secure against unauthorised access.
