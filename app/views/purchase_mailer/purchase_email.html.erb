@@ -3,17 +3,11 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  
   <body>
-
-    <h1> Hi!</h1>
-
-    <p> Thank you for placing your order at <strong> Open Gallery! </strong> </p>
-    
-    <p> Your purchase_invoice is <%= Faker::Invoice.reference %> </p>
-
-    <p> Your piece will reach you shortly. Have a great day!</p>
-  
+    <h1>Hi, <%= @sale_data[:buyer] %></h1>
+    <p>Thank you for placing your order at <strong>Open Gallery!</strong></p>
+    <p>You bought <%= @sale_data[:piece_name] %> by <%= @sale_data[:artist] %></p>
+    <p>Your purchase invoice is <%= Faker::Invoice.reference %> for <%= @sale_data[:price]/100 %></p>
+    <p>The creator will shortly be in touch to confirm delivery details. Have a great day!</p>
   </body>
-
 </html>

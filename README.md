@@ -299,7 +299,7 @@ to reset and reseed the database remotely and this can be done by running
 We chose to keep our database slim. We anticipated that a gratuitously complex database
 schema would result in problems during development and instead
 implemented our functionality through table relationships and client-side
-technologies (i.e. cookies).
+technologies (i.e. encrypted cookies).
 
 ### 8. Describe the architecture of your App.
 
@@ -523,6 +523,8 @@ Authentication is partly handled by CanCan, which is another third-party library
 permissions on RESTful actions. However, we also built in our own authentication methods
 by setting user_id checks on the edit and delete actions so that only users who actually
 own pieces can update or destroy them.
+
+In the one case where we saved information in the session, we used encrypted cookies to prevent client-side tampering.
 
 ### 23. Research what your legal obligations are in relation to handling user data.
 
