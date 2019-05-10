@@ -9,16 +9,16 @@ Andrew Sims and Seep Gulati
 ## Project Description
 
 ### Problem definition
-An online marketplace to connect visual artists and art-lovers. Our platform gives visual artists the opportunity not only to sell their works but also to set-up patronage relationships with art-lovers who can choose to “follow” them and be the first to see new works as they go up for sale. The products are original visual “pieces”(either painting, drawings, or sculpture) -- basically things that you would find in a gallery which has pieces for sale.
+An online marketplace to connect artists and art-lovers. Our platform gives artists the opportunity not only to sell their works but also to set-up patronage relationships with art-lovers who can choose to “follow” them and be the first to see new works as they go up for sale. The products are original “pieces”(either painting, drawings, or sculpture) -- basically things that you would find in a gallery which has pieces for sale.
 
 ### Site Map
 ![](./docs/sitemap.png)
 
 ### Functionality
-- Open Gallery allows users to browse visual art pieces.
+- Open Gallery allows users to browse art pieces.
 - Open Gallery allows user to interact with Open Gallery admin through Contact Us form in the footer.
 - Open Gallery allows artists to sell their art pieces and also buy art pieces from other artists. 
-- Open Gallery allows the signed-in users to buy visual art pieces.
+- Open Gallery allows the signed-in users to buy art pieces.
 - Open Gallery allows the signed-in users to follow their favourite artists.
 - Open Gallery allows the signed-in users to contact the artists through a form.
 - Open Gallery allows the signed-in users to contact the artists in-built contact form.
@@ -171,6 +171,7 @@ Tuesday
 
 #### Friday
 
+- Tweak READMe
 - Make sure code is well commented
 - Presentation
 - Divide parts of the presentation
@@ -178,7 +179,16 @@ Tuesday
 
 ### Team Communication Screenshots
 
+- Slack
+![](./docs/slack.png)
 
+- Trello
+![](./docs/trello.png)
+
+### Version Control Screenshots
+
+- Git
+![](./docs/git.png)
 
 [Our Trello Board](https://trello.com/b/GJDgjVyc/ror-project)
 
