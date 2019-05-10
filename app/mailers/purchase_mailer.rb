@@ -2,12 +2,12 @@
 
 class PurchaseMailer < ApplicationMailer
   def purchase_email
-    @user_name = params[:user]
-    mail(to: 'testuserapp6@gmail.com', subject: 'Your Purchase Invoice')
+    @sale_data = params[:sale_data]
+    mail(to: @sale_data[:buyer_email], subject: "Here's your purchase invoice!")
   end
 
   def seller_email
-    @user_name = params[:user]
-    mail(to: 'testuserapp6@gmail.com', subject: "You've sold an artwork!")
+    @sale_data = params[:sale_data]
+    mail(to: @sale_data[:artist_email], subject: "You've sold an artwork!")
   end
 end

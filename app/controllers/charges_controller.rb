@@ -2,17 +2,9 @@
 
 class ChargesController < ApplicationController
   def create
-    # Flag piece as sold and link to buyer.
-    piece = Piece.find(cookies.encrypted[:piece_id])
-    piece.sold = true
-    piece.user_id = current_user.id
-    piece.save
-
-    # Notify artist of the sale.
-    artist = piece.workshop.user
-
     # Amount in cents
-    @amount = 500
+    piece = Piece.find(cookies.encrypted[:piece_id])
+    @amount = (piece.price.to_f * 100).to_i
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -25,12 +17,33 @@ class ChargesController < ApplicationController
       description: 'Rails Stripe customer',
       currency: 'usd'
     )
+
+    # Flag piece as sold and link to buyer.
+    piece.sold = true
+    piece.user_id = current_user.id
+    piece.save
+
+
+
+    # Define params for mailer
+    artist = piece.workshop.user
+
+    @sale_data = {
+      artist: artist.full_name,
+      artist_email: artist.email,
+      buyer: current_user.full_name,
+      buyer_email: current_user.email,
+      piece_name: piece.name,
+      price: @amount,
+      invoice: Faker::Invoice.reference,
+      auto_msg: piece.workshop.auto_respond_msg
+    }
   
     # Customer was charged. Send an invoice.
-    PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
+    PurchaseMailer.with(sale_data: @sale_data).purchase_email.deliver_now
 
     # Artist sold a piece. Send a notification.
-    PurchaseMailer.with(user: artist.full_name).seller_email.deliver_now
+    PurchaseMailer.with(sale_data: @sale_data).seller_email.deliver_now
     
   rescue Stripe::CardError => e
     flash[:error] = e.message
