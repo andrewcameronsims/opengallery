@@ -2,9 +2,7 @@
 You've sold an artwork!
 ===============================================
 
-You sold an artpiece. Check the site for more information.
-
-Your purchase_invoice is <%= Faker::Invoice.reference %> 
-The seller will be expecting you to be in contact soon.
-
-Thanks for selling your artwork with Open Gallery.
+You've sold an artwork!
+You sold your piece <%= @sale_data[:piece_name] %>. Check the site for more information.
+The purchase invoice is <%= @sale_data[:invoice] %>
+<%= @sale_data[:buyer].capitalize %> will be expecting you to be in contact soon. Thanks for selling your artwork with Open Gallery.

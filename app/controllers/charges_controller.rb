@@ -23,17 +23,20 @@ class ChargesController < ApplicationController
     piece.user_id = current_user.id
     piece.save
 
-    # Notify artist of the sale.
-    artist = piece.workshop.user
+
 
     # Define params for mailer
+    artist = piece.workshop.user
+
     sale_data = {
       artist: artist.full_name,
       artist_email: artist.email,
       buyer: current_user.full_name,
       buyer_email: current_user.email,
       piece_name: piece.name,
-      price: @amount
+      price: @amount,
+      invoice: Faker::Invoice.reference,
+      auto_msg: piece.workshop.auto_respond_msg
     }
   
     # Customer was charged. Send an invoice.
