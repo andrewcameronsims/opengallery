@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 class WorkshopsController < ApplicationController
-  def index
-    @workshops = Workshop.all
-  end
-
-  def show
-    @workshop = Workshop.find(params[:id])
-  end
 
   def new
     if !current_user.artist?
@@ -16,10 +9,6 @@ class WorkshopsController < ApplicationController
     else
       redirect_to home_path
     end
-  end
-
-  def edit
-    @workshop = Workshop.find(params[:id])
   end
 
   def create
@@ -33,23 +22,6 @@ class WorkshopsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def update
-    @workshop = Workshop.find(params[:id])
-
-    if @workshop.update(workshop_params)
-      redirect_to @workshop
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @workshop = Workshop.find(params[:id])
-    @workshop.destroy
-
-    redirect_to workshops_path
   end
 
   private
