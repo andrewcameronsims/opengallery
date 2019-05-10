@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Custom columns for User model
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :phone, :address, :secret_question, :encrypted_secret, :avatar, :admin, :artist, tags: []])
     devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :phone, :address, :secret_question, :encrypted_secret, :avatar, :admin, :artist, tags: []])
