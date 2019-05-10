@@ -46,63 +46,81 @@ deployed on Heroku.
 
 ## Design process
 
-Initial idea
+Despite making some concessions to responsive design, we concieved of our webapp as
+a "desktop-first" experience. That has to do with the nature of our business problem.
+If people are buying a piece of art, it is unlikely that they will be viewing the piece
+on a small screen; they are more likely to want to see it in full resolution.
+
+### Initial idea
+
 ![](./docs/initial-idea.png)
 
-Final Idea
+### Final Idea
+
 ![](./docs/final-idea.jpg)
 
 [Detailed Design Process](https://docs.google.com/document/d/1nvvriwgaqZyM2bJsPWC-SLGM1BwB4ZtRzdg3L8unjTE/edit)
 
-Design documentation including,
-- Design process
-- User stories
 
-* Color 
+### Colours
+
 We have used Orange as our main colour through-out our application. Orange blends well with timeless Black and White combination.
 
 Orange has been used for its association with ‘creativity’, ‘fascination’,‘stimulation’ and ‘contemporary’ feelings. As an online-visual art gallery for amateur artists standing out was important and orange with its high-visibility power helps in catching attention and highlighting the most important elements of our website design.
 
 ![](./docs/mood-board.png)
 
-* Logo
-We came-up with few renditions of logo and decided the simple option with ‘Playfair font’ and brand colours.
+### Logo
+
+We came-up with few renditions of logo and decided the simple option with 
+‘Playfair font’ and brand colours.
+
 ![](./docs/logo-options.png)
 
-* Sketches for layout
+### Wireframe sketches
+
 ![](./docs/sketches.jpg)
 
-* Workflow diagram of the user journey/s.
+### Workflow Diagram
+
 ![](./docs/workflow-diagram.png)
 
-* Wireframes
+### Wireframes
+
 ![](./docs/wireframes.png)
 
-Database Entity Relationship Diagrams
+### ERDs
+
 ![](./docs/database.png)
 
-* Test email id for checking mailer functionality 
+### Email for testing mailers
+
 UserId: testuserapp6@gmail.com 
 Password: StrongPassword1234!
 
-Details of planning process 
-Project plan & timeline
+## Timeline
 
-Week 1:
-Monday
+### Week 1:
+
+#### Monday
+
 - ERD
 - Trello
 - Wireframes
 - Design brief
 - Sign off
-Tuesday
+
+#### Tuesday
+
 - Make a list of required controllers/views/models
 - Generate controllers (with actions and views), migrations, models, and mailers
 - Pull skeleton design onto each laptop
 - Add dependencies and config (add bootstrap, faker gem, devise, stripe, mailgun, amazon image hosting)
 - Seeding
 - Think about responsibilities/delegation
-Wednesday
+
+#### Wednesday
+
 - Fix seeder script
 - Draft Navbar
 - Draft Footer
@@ -110,53 +128,58 @@ Wednesday
 - Draft 'Home' pieces#Home
 - Create Routes - Routes.rb
 - Fill out methods for CONTROLLERS- Workshop, Piece
-Thursday
-Write tests
+
+#### Thursday
+
 - Draft 'Invoice' confirmation View
 - Draft 'Invoice' confirmation View
 - Draft 'Pieces#Show view
 - Draft 'Pieces#New view
-Friday
+
+#### Friday
+
 - Working on making app MVP ready
-Sunday
+
+#### Sunday
+
 - MVP done
 
-Week 2:
-Monday
+### Week 2:
+
+#### Monday & Tuesday
+
 - Deployed MVP on Heroku
 - Worked on a new model for Follower
 Tuesday
 - Follower functionality through JS
 - Validations
-Wednesday
+
+
+#### Wednesday
+
 - Bug fixes with deployment
 - Validations
-Thursday
+
+#### Thursday
+
 - Bug fixes with deployment
 - README.md
 - Ensure Responsive design in mobile
 - Complete wireframes and designs in Figma
 - Workflow diagram
-Friday
+
+#### Friday
+
 - Make sure code is well commented
 - Presentation
 - Divide parts of the presentation
 - Submission
 
-Screenshots of Trello board(s)
+### Team Communication Screenshots
 
-Trello (few pics)
+
+
 [Our Trello Board](https://trello.com/b/GJDgjVyc/ror-project)
-
-
-
-
-
-
-
-
-
-
 
 ## Short Answer Questions
 
