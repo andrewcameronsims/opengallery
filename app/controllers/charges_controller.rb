@@ -2,6 +2,22 @@
 
 class ChargesController < ApplicationController
   def create
+
+    # Amount in cents
+    @amount = piece.price.to_f
+
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount: @amount,
+      description: 'Rails Stripe customer',
+      currency: 'usd'
+    )
+    
     # Flag piece as sold and link to buyer.
     piece = Piece.find(cookies.encrypted[:piece_id])
     piece.sold = true
@@ -18,21 +34,6 @@ class ChargesController < ApplicationController
       buyer: current_user.full_name,
       buyer_email: current_user.email
     }
-
-    # Amount in cents
-    @amount = piece.price
-
-    customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
-      source: params[:stripeToken]
-    )
-
-    charge = Stripe::Charge.create(
-      customer: customer.id,
-      amount: @amount,
-      description: 'Rails Stripe customer',
-      currency: 'usd'
-    )
   
     # Customer was charged. Send an invoice.
     PurchaseMailer.with(sale_data: sale_data).purchase_email.deliver_now
