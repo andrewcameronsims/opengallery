@@ -59,7 +59,7 @@ counter = 0
   w = Workshop.new
   w.bio = Faker::Lorem.sentence
   w.bank_account = Faker::Bank.account_number
-  w.auto_respond_msg = 'Thanks for your email. I will respond to you shortly.'
+  w.auto_respond_msg = 'Thanks for your interest in my work! I will be in touch with you within 24 hours.'
   w.user_id = u.id # User_id associated with workshop
   w.save
 
