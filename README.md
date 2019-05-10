@@ -452,7 +452,14 @@ So that I can easily track to whom I need to send the product and keep a tab on 
 
 ### 17. Describe the way tasks are allocated and tracked in your project.
 
-* Attach images of Trello, slack and discuss git workflow
+- Slack
+![](./docs/slack.png)
+
+- Trello
+![](./docs/trello.png)
+
+- Git
+![](./docs/git.png)
 
 ### 18. Discuss how Agile methodology is being implemented in your project.
 
