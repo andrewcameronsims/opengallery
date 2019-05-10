@@ -23,6 +23,15 @@ An online marketplace to connect artists and art-lovers. Our platform gives arti
 - Open Gallery allows the signed-in users to contact the artists through a form.
 - Open Gallery allows the signed-in users to contact the artists in-built contact form.
 
+
+### Screenshots
+
+![](./docs/landing-page1.png)
+![](./docs/landing-page2.png)
+![](./docs/piece.png)
+![](./docs/sign-up.png)
+
+
 ### Outside inspiration
 
 We were inspired by other two-marketplaces and particularly those dealing with
