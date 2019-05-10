@@ -11,8 +11,16 @@ class ChargesController < ApplicationController
     # Notify artist of the sale.
     artist = piece.workshop.user
 
+    # Define params for mailer
+    sale_data = {
+      artist: artist.full_name,
+      artist_email: artist.email,
+      buyer: current_user.full_name,
+      buyer_email: current_user.email
+    }
+
     # Amount in cents
-    @amount = 500
+    @amount = piece.price
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
@@ -27,10 +35,10 @@ class ChargesController < ApplicationController
     )
   
     # Customer was charged. Send an invoice.
-    PurchaseMailer.with(user: current_user.full_name).purchase_email.deliver_now
+    PurchaseMailer.with(sale_data: sale_data).purchase_email.deliver_now
 
     # Artist sold a piece. Send a notification.
-    PurchaseMailer.with(user: artist.full_name).seller_email.deliver_now
+    PurchaseMailer.with(sale_data: sale_data).seller_email.deliver_now
     
   rescue Stripe::CardError => e
     flash[:error] = e.message
