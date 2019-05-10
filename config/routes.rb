@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :charges, only: [:create]
   resources :followers, only: %i[create destroy]
   resources :pieces
-  resources :workshops, only: %i[:new]
+  resources :workshops, only: [:new, :create]
 end
