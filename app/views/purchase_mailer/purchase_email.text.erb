@@ -1,7 +1,9 @@
 
-Thanks for placing in your order at Open Gallery!
+Thanks for placing your order with Open Gallery!
 ===============================================
 
-Your purchase_invoice is <%= Faker::Invoice.reference %> 
-
-Have a great day! 
+Hi, <%= @sale_data[:buyer] %>
+Thank you for placing your order at Open Gallery!
+You bought <%= @sale_data[:piece_name] %> by <%= @sale_data[:artist] %>
+Your purchase invoice is <%= Faker::Invoice.reference %> for <%= @sale_data[:price] %>
+The artist will shortly be in touch to confirm delivery details. Have a great day!
