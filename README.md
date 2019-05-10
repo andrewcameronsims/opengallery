@@ -95,8 +95,9 @@ We came-up with few renditions of logo and decided the simple option with
 
 ### Email for testing mailers
 
-UserId: testuserapp6@gmail.com 
-Password: StrongPassword1234!
+**Username**: testuserapp6@gmail.com
+
+**Password**: StrongPassword1234!
 
 ## Timeline
 
