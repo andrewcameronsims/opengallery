@@ -24,7 +24,7 @@ puts 'Seeding buyers.'
 5.times do
   u = User.new
   u.full_name = Faker::Name.name
-  u.email = "testuserapp6@gmail.com"
+  u.email = Faker::Internet.email
   u.password = 'password1234'
   u.password_confirmation = 'password1234'
   u.secret_question = 'What is 1 + 1?'
