@@ -2,9 +2,13 @@
 	<div class="col-2 white-on-orange"></div>
 	<div class="col p-5">
 		<h1 class="my-2">Thanks for placing your order </h1>
-		<p> Thank you for placing your order at <strong> Open Gallery! </strong> </p>
-		<p> Your purchase_invoice is <%= Faker::Invoice.reference %> </p>
-		<p> Your piece will reach you shortly. Have a great day!</p>
+		<p class="my-2">Thank you for placing your order at <strong>Open Gallery!</strong></p>
+		<p class="my-2">Your purchase_invoice is <%= Faker::Invoice.reference %></p>
+		<p class="my-2">
+			We have informed the artist of your purchase and sent both of you copies
+			of the invoice. The artist should be in touch with you soon to confirm
+			delivery.
+		</p>
 	</div>
 </div>
 
