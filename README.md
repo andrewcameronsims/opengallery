@@ -20,9 +20,7 @@ An online marketplace to connect artists and art-lovers. Our platform gives arti
 - Open Gallery allows artists to sell their art pieces and also buy art pieces from other artists. 
 - Open Gallery allows the signed-in users to buy art pieces.
 - Open Gallery allows the signed-in users to follow their favourite artists.
-- Open Gallery allows the signed-in users to contact the artists through a form.
-- Open Gallery allows the signed-in users to contact the artists in-built contact form.
-
+- Open Gallery allows the signed-in users to contact the artists through a in-built form.
 
 ### Screenshots
 
@@ -69,7 +67,6 @@ on a small screen; they are more likely to want to see it in full resolution.
 ![](./docs/final-idea.jpg)
 
 [Detailed Design Process](https://docs.google.com/document/d/1nvvriwgaqZyM2bJsPWC-SLGM1BwB4ZtRzdg3L8unjTE/edit)
-
 
 ### Colours
 
@@ -160,10 +157,8 @@ We came-up with few renditions of logo and decided the simple option with
 
 - Deployed MVP on Heroku
 - Worked on a new model for Follower
-Tuesday
 - Follower functionality through JS
 - Validations
-
 
 #### Wednesday
 
