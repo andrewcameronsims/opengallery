@@ -47,7 +47,7 @@ deployed on Heroku.
 
 1. Navigate to a location where you want to install the source and run `git clone https://github.com/andrewcameronsims/opengallery.git`
 
-2. Reset the database using `rails run db:reset`
+2. Reset the database using `rails db:reset`
 
 3. Run `rails server` to run the server in development mode.
 
